@@ -7,6 +7,22 @@
 (global-set-key "\C-q" 'dabbrev-expand)
 
 
+;; 文字コードをUTF-8に
+(set-language-environment "Japanese")
+(prefer-coding-system 'utf-8)
+
+;; Max OS Xのファイルネーム設定
+(when (eq system-type 'darwin)
+  (require 'ucs-normalize)
+  (set-file-name-coding-system 'utf-8-hfs)
+  (setq locale-coding-system 'utf-8-hfs))
+
+;; Windowsのファイルネーム設定
+(when (eq window-system 'w32)
+  (set-file-name-coding-system 'cp933)
+  (setq locale-coding-system 'cp932))
+
+
 ;; Load Path
 ;(setq load-path (cons "~/.emacs.d" load-path))
 
