@@ -1,0 +1,172 @@
+;;; -*- mode: lisp-interaction; syntax: elisp -*-
+;; Time-stamp: 
+
+;;; フレームの設定
+(setq default-frame-alist
+      (append 
+       (list
+        ;; サイズ・位置
+        '(width . 120) ; 横幅(文字数)
+        '(height . 53) ; 高さ(行数)
+        '(top . 20) ; フレーム左上角 y 座標
+        '(left . 0) ; フレーム左上角 x 座標
+        )
+       default-frame-alist)
+      )
+
+(if window-system 
+    (progn
+      (set-background-color "gray2")
+      (set-foreground-color "White")
+      (set-cursor-color "Green")
+      )
+  )
+
+
+;;tabを入力しない用にする
+(setq-default indent-tabs-mode nil) 
+(setq indent-line-function 'indent-relative-maybe) 
+
+;; デフォルトの透明度を設定する
+(add-to-list 'default-frame-alist '(alpha . 85))
+
+;; カレントウィンドウの透明度を変更する (85%)
+;;(set-frame-parameter nil 'alpha 0.85)
+(set-frame-parameter nil 'alpha 85)
+
+;; erase memubar, scrollbar
+(menu-bar-mode -1) ;画面上に出るメニュー(文字)を消す
+(scroll-bar-mode -1) ;画面横に出るスクロールバーを消す
+(tool-bar-mode -1) ;画面上に出るツールバー(アイコン画像)を消す
+(setq cursor-in-non-selected-windows nil) ;非active windowにはカーソルを表示しない
+(transient-mark-mode t) ;選択したとき色がつくようにする
+
+
+;; 英語Fontの設定
+(set-face-attribute 'default nil
+:family "Migu 1M"
+:height 120)
+
+
+;; 日本語Fontの設定
+(set-fontset-font
+nil 'japanese-jisx0208
+(font-spec :family "Migu 1M"))
+
+
+;; color
+(global-font-lock-mode t) ;font-lock use-all
+;; リージョンに色をつける
+(setq transient-mark-mode t)
+
+
+;;スクロールを1行ごとに
+(defun scroll-down-with-lines ()
+  "" (interactive) (scroll-down 1))
+(defun scroll-up-with-lines ()
+  "" (interactive) (scroll-up 1))
+(global-set-key [wheel-up] 'scroll-down-with-lines)
+(global-set-key [wheel-down] 'scroll-up-with-lines)
+(global-set-key [double-wheel-up] 'scroll-down-with-lines)
+(global-set-key [double-wheel-down] 'scroll-up-with-lines)
+(global-set-key [triple-wheel-up] 'scroll-down-with-lines)
+(global-set-key [triple-wheel-down] 'scroll-up-with-lines)
+
+
+
+;;; タブ, 全角スペースを表示する
+;;;
+(defface my-face-b-1 '((t (:background "gray15"))) nil)
+(defface my-face-b-2 '((t (:background "gray26"))) nil)
+(defface my-face-u-1 '((t (:foreground "SteelBlue" :underline t))) nil)
+(defvar my-face-b-1 'my-face-b-1)
+(defvar my-face-b-2 'my-face-b-2)
+(defvar my-face-u-1 'my-face-u-1) 
+(defadvice font-lock-mode (before my-font-lock-mode ())
+(font-lock-add-keywords
+major-mode
+'(("\t" 0 my-face-b-2 append)
+("　" 0 my-face-b-1 append)
+("[ \t]+$" 0 my-face-u-1 append)
+)))
+(ad-enable-advice 'font-lock-mode 'before 'my-font-lock-mode)
+(ad-activate 'font-lock-mode)
+
+;; 特定の拡張子を新規作成したとき、特定の文字コードを適用する
+(modify-coding-system-alist 'file "\\.rb\\'" 'utf-8-unix)
+(modify-coding-system-alist 'file "\\.cgi\\'" 'utf-8-unix)
+
+;;スプラッシュ(起動画面)抑止
+(setq inhibit-startup-message t)
+(buffer-menu)
+
+;;Shift+カーソルキーで選択できるようにする
+(setq pc-select-selection-keys-only t)
+(pc-selection-mode 1)
+
+;; cc-mode
+(defun my-c-mode-common-hook ()
+  (c-set-style "java")
+  )
+
+(add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
+(add-to-list 'auto-mode-alist '("\\.c\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.cpp\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
+(add-to-list 'auto-mode-alist '("\\.pl\\'" . perl-mode))
+(add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
+(add-to-list 'auto-mode-alist '("\\.as\\'" . java-mode))
+
+
+;; tmp file saving directory
+(setq auto-save-list-file-prefix "~/local/.emacs.d/.saves-")
+
+;; backup.file~ location
+(setq make-backup-files t)
+(setq backup-directory-alist
+(cons (cons "\\.*$" (expand-file-name "~/local/.emacs.d"))
+backup-directory-alist))
+
+;; auto-insert LAST-MODIFIED-DATE
+(if (not (memq 'time-stamp write-file-hooks))
+(setq write-file-hooks
+(cons 'time-stamp write-file-hooks)))
+(setq time-stamp-line-limit 40)
+(setq time-stamp-format "%3b %02d %:y")
+(setq system-time-locale "C")
+
+
+
+;; 前回編集していた場所を記憶し，ファイルを開いた時にそこへカーソルを移動
+(load "saveplace")
+(setq-default save-place t)
+
+;; kill-ring はテキスト属性（色情報など）を保存しなくていい
+;; http://www-tsujii.is.s.u-tokyo.ac.jp/~yoshinag/tips/elisp_tips.html#yankoff
+(defadvice kill-new (around my-kill-ring-disable-text-property activate)
+(let ((new (ad-get-arg 0)))
+(set-text-properties 0 (length new) nil new)
+ad-do-it))
+
+
+
+;;(cd "~") ;start on home directory
+(cd "./") ;start on current directory
+(setq-default indent-tabs-mode nil) ;When pushing [TAB], spaces are input.
+
+
+;;ビープ音消去
+(setq ring-bell-function 'ignore)
+
+
+;;起動時にEshellでシェルのカレントディレクトリに移動
+'(defun eshell-in-the-directory (targetdir)
+  (interactive)
+  (let ((dir default-directory))
+    (eshell)
+    (cd targetdir)
+    (eshell-interactive-print (concat "cd " targetdir "\n"))
+    (eshell-emit-prompt)
+    (cd dir)
+    (end-of-buffer)
+    ))
