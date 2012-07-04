@@ -65,28 +65,28 @@
 
 
 ;;現在行のハイライト
-(defface my-hl-line-face
+'(defface my-hl-line-face
   '((((class color) (background dark))
      (:background "NavyBlue" t))
     (((class color) (background light))
      (:background "LightGoldenrodYellow" t))
     (t (:bold t)))
   "hl-line's my face")
-(setq hl-line-face 'my-hl-line-face)
+;(setq hl-line-face 'my-hl-line-face)
 '(global-hl-line-mode 0)
 
 
 ;;-------------------------
 ;;対応する括弧のハイライト
-(setq show-paren-delay 0)
-(show-paren-mode t)
+;(setq show-paren-delay 0)
+;(show-paren-mode t)
 
 ;;カッコ内を強調表示
-(setq show-paren-style 'expression)
+;(setq show-paren-style 'expression)
 
 ;;フェイスを変更する
-(set-face-background 'show-paren-match-face nil)
-(set-face-underline-p 'show-paren-match-face "cyan")
+;(set-face-background 'show-paren-match-face nil)
+;(set-face-underline-p 'show-paren-match-face "cyan")
 
 ;;
 ;;------------------------

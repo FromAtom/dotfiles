@@ -49,6 +49,13 @@
 (load ".emacs24")
 
 
+;;auto-installを読み込み
+(when (require 'auto-install nil t)
+  (setq auto-install-directory "~/.emacs.d/elisp/")
+  (auto-install-update-emacswiki-package-name t)
+  (auto-install-compatibility-setup))
+
+
 ;;起動時にEshellも起動
 (add-hook 'after-init-hook (lambda()(eshell)))
 
