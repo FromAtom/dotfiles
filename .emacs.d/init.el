@@ -20,7 +20,8 @@
 ;; Windowsのファイルネーム設定
 (when (eq window-system 'w32)
   (set-file-name-coding-system 'cp933)
-  (setq locale-coding-system 'cp932))
+  (setq locale-coding-system 'cp932)
+  (set-file-name-coding-system 'cp932))
 
 
 ;; Load Path
@@ -41,6 +42,7 @@
             (normal-top-level-add-subdirs-to-load-path))))))
 
 ;; confを読み込みに追加
+(add-to-load-path "elisp")
 (add-to-load-path "conf")
 
 ;; .emacs22を読み込み

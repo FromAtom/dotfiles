@@ -1,6 +1,10 @@
 ;;; -*- mode: lisp-interaction; syntax: elisp -*-
 
 
+;;-------------------------
+;;  サイズと色関係
+;;---------------------
+
 ;;; フレームの設定
 (setq default-frame-alist
       (append
@@ -14,6 +18,8 @@
        default-frame-alist)
       )
 
+
+;;オレオレカラー設定はこっち
 (if window-system
     (progn
       (set-background-color "gray2")
@@ -23,9 +29,79 @@
   )
 
 
-;;tabを入力しない用にする
+
+;;テーマを使う場合はこっち
+'(when (require 'color-theme nil t)
+  (color-theme-initialize)
+  (color-theme-dark-laptop))
+
+
+;; font-lock use-all
+(global-font-lock-mode t)
+
+;; リージョンに色をつける
+(setq transient-mark-mode t)
+
+;;-------------------------/
+
+
+;;-------------------------
+;;  モードライン関係
+;;---------------------
+;;カラム番号を表示
+(column-number-mode t)
+
+;;ファイルサイズを表示
+(size-indication-mode t)
+
+;;時計を表示
+(setq display-time-day-and-date t)
+(setq display-time-24hr-format t)
+(display-time-mode t)
+
+;;バッテリー残量を表示
+(display-battery-mode t)
+;;------------------------/
+
+
+;;現在行のハイライト
+(defface my-hl-line-face
+  '((((class color) (background dark))
+     (:background "NavyBlue" t))
+    (((class color) (background light))
+     (:background "LightGoldenrodYellow" t))
+    (t (:bold t)))
+  "hl-line's my face")
+(setq hl-line-face 'my-hl-line-face)
+'(global-hl-line-mode 0)
+
+
+;;-------------------------
+;;対応する括弧のハイライト
+(setq show-paren-delay 0)
+(show-paren-mode t)
+
+;;カッコ内を強調表示
+(setq show-paren-style 'expression)
+
+;;フェイスを変更する
+(set-face-background 'show-paren-match-face nil)
+(set-face-underline-p 'show-paren-match-face "cyan")
+
+;;
+;;------------------------
+
+;;タイトルバーにフルパスを表示
+(setq frame-title-format "%f")
+
+;;行番号を表示
+;(global-linum-mode t)
+
+
+;;tabを入力しない様にする
+(setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
-(setq indent-line-function 'indent-relative-maybe)
+
 
 ;; デフォルトの透明度を設定する
 (add-to-list 'default-frame-alist '(alpha . 85))
@@ -54,11 +130,6 @@ nil 'japanese-jisx0208
 (font-spec :family "Migu 1M"))
 
 
-;; color
-(global-font-lock-mode t) ;font-lock use-all
-;; リージョンに色をつける
-(setq transient-mark-mode t)
-
 
 ;;スクロールを1行ごとに
 (defun scroll-down-with-lines ()
@@ -81,7 +152,7 @@ nil 'japanese-jisx0208
 (defface my-face-u-1 '((t (:foreground "SteelBlue" :underline t))) nil)
 (defvar my-face-b-1 'my-face-b-1)
 (defvar my-face-b-2 'my-face-b-2)
-(defvar my-face-u-1 'my-face-u-1) 
+(defvar my-face-u-1 'my-face-u-1)
 (defadvice font-lock-mode (before my-font-lock-mode ())
 (font-lock-add-keywords
 major-mode
@@ -92,22 +163,27 @@ major-mode
 (ad-enable-advice 'font-lock-mode 'before 'my-font-lock-mode)
 (ad-activate 'font-lock-mode)
 
+
 ;; 特定の拡張子を新規作成したとき、特定の文字コードを適用する
 (modify-coding-system-alist 'file "\\.rb\\'" 'utf-8-unix)
 (modify-coding-system-alist 'file "\\.cgi\\'" 'utf-8-unix)
+
 
 ;;スプラッシュ(起動画面)抑止
 (setq inhibit-startup-message t)
 (buffer-menu)
 
+
 ;;Shift+カーソルキーで選択できるようにする
 (setq pc-select-selection-keys-only t)
 '(pc-selection-mode 1)
+
 
 ;; cc-mode
 (defun my-c-mode-common-hook ()
   (c-set-style "java")
   )
+
 
 (add-hook 'c-mode-common-hook 'my-c-mode-common-hook)
 (add-to-list 'auto-mode-alist '("\\.c\\'" . c++-mode))
@@ -121,11 +197,13 @@ major-mode
 ;; tmp file saving directory
 (setq auto-save-list-file-prefix "~/local/.emacs.d/.saves-")
 
+
 ;; backup.file~ location
 (setq make-backup-files t)
 (setq backup-directory-alist
 (cons (cons "\\.*$" (expand-file-name "~/local/.emacs.d"))
 backup-directory-alist))
+
 
 ;; auto-insert LAST-MODIFIED-DATE
 (if (not (memq 'time-stamp write-file-hooks))
@@ -169,4 +247,5 @@ ad-do-it))
     (eshell-emit-prompt)
     (cd dir)
     (end-of-buffer)
-    ))
+    )
+  )
