@@ -49,11 +49,23 @@
 (load ".emacs24")
 
 
+;;Ruby用elispを読み込み
+(load "init-ruby")
+
+
 ;;auto-installを読み込み
 (when (require 'auto-install nil t)
   (setq auto-install-directory "~/.emacs.d/elisp/")
   (auto-install-update-emacswiki-package-name t)
   (auto-install-compatibility-setup))
+
+
+(require 'shell-pop)
+(shell-pop-set-window-height 50)
+(shell-pop-set-internal-mode "eshell")
+(shell-pop-set-internal-mode-shell "/bin/zsh")
+(global-set-key "\C-t" 'shell-pop)
+
 
 
 ;;起動時にEshellも起動
