@@ -64,14 +64,14 @@ function rprompt-git-current-branch {
 }
 
 #RPROMPT='`rprompt-git-current-branch`'$PURPLE'[%~]'$DEFAULT
-#setopt PROMPT_SUBST
+setopt PROMPT_SUBST
 
 
 ## Default shell configuration
 #
 # set prompt
 #
-#autoload colors
+autoload colors
 colors
 case ${UID} in
     0)
