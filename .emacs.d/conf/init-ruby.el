@@ -2,9 +2,9 @@
 ;;indent level
 ;;when push enter
 ;;intert tab
-(setq ruby-indent-level 3
+(setq ruby-indent-level 2
       ruby-deep-indent-paren-style nil
-      ruby-indent-tabs-mode nil)
+      ruby-indent-tabs-mokde nil)
 
 
 ;;括弧の自動挿入

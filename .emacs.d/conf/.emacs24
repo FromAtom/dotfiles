@@ -200,9 +200,10 @@ major-mode
 
 ;; backup.file~ location
 (setq make-backup-files t)
-(setq backup-directory-alist
-(cons (cons "\\.*$" (expand-file-name "~/local/.emacs.d"))
-backup-directory-alist))
+(add-to-list 'backup-directory-alist
+             (cons "." "~/.emacs.d/backups"))
+(setq auto-save-file-name-transforms
+      `((".*" ,(expand-file-name "~/.emacs.d/backups") t)))
 
 
 ;; auto-insert LAST-MODIFIED-DATE

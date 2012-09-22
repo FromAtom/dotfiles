@@ -8,6 +8,17 @@ export PATH=/Applications/Ghostscript.app:/Applications/Ghostscript.app/bin:$PAT
 
 
 
+## use alc with w3m
+#
+function alc() {
+    if [ $# != 0 ]; then
+        lynx -dump -nonumbers "http://eow.alc.co.jp/$*/UTF-8/?ref=sa" | less +38
+    else
+        lynx -dump -nonumbers "http://www.alc.co.jp/"
+    fi
+}
+
+
 ## Environment variable configuration
 #
 # LANG
