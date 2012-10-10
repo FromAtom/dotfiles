@@ -19,7 +19,7 @@
 
 ;; Windowsのファイルネーム設定
 (when (eq window-system 'w32)
-  (set-file-name-coding-system 'cp933)
+  (set-file-name-coding-system 'cp932)
   (setq locale-coding-system 'cp932)
   (set-file-name-coding-system 'cp932))
 
