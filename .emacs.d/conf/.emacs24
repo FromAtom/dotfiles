@@ -58,7 +58,7 @@
 (display-time-mode t)
 
 ;;バッテリー残量を表示
-(display-battery-mode t)
+;(display-battery-mode t)
 ;;------------------------/
 
 
