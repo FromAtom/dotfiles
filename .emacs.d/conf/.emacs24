@@ -251,3 +251,8 @@ ad-do-it))
     (end-of-buffer)
     )
   )
+
+
+;;矩形選択を有効に
+(cua-mode t)
+(setq cua-enable-cua-key nil)

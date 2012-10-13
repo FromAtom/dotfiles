@@ -30,12 +30,10 @@ case ${UID} in
         ;;
 esac
 
-
-
-
-
-autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
-
+###ブランチ名を状態によって色変え
+autoload -U colors; colors
+#autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
+ 
 function rprompt-git-current-branch {
     local name st color gitdir action
     if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
@@ -60,10 +58,9 @@ function rprompt-git-current-branch {
         color=%F{red}
     fi
 
-    echo "($color$name$action%f%b)"
+    echo "(%{$color%}$name%{$reset_color%})"
 }
 
-#RPROMPT='`rprompt-git-current-branch`'$PURPLE'[%~]'$DEFAULT
 setopt PROMPT_SUBST
 
 
@@ -71,25 +68,15 @@ setopt PROMPT_SUBST
 #
 # set prompt
 #
-autoload colors
-colors
-case ${UID} in
-    0)
-        PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') %B%{${fg[red]}%}%/#%{${reset_color}%}%b "
-        PROMPT2="%B%{${fg[red]}%}%_#%{${reset_color}%}%b "
-        RPROMPT="[%~]"
-        SPROMPT="%B%{${fg[red]}%}%r is correct? [n,y,a,e]:%{${reset_color}%}%b "
-        ;;
-    *)
-        PROMPT="%{${fg[red]}%}%m:%n%%%{${reset_color}%} "
-        PROMPT2="%{${fg[yellow]}%}%_%%%{${reset_color}%} "
-        RPROMPT="`rprompt-git-current-branch` %{${fg[cyan]}%}[%~/]%{${reset_color}%}"
-        SPROMPT="%{${fg[yellow]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
-        [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
-        PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
-        ;;
-esac
 
+PROMPT="%{${fg[red]}%}%m:%n%%%{${reset_color}%} "
+PROMPT2="%{${fg[yellow]}%}%_%%%{${reset_color}%} "
+SPROMPT="%{${fg[yellow]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
+[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
+
+#RPROMPT='`rprompt-git-current-branch` [%~]'
+RPROMPT='`rprompt-git-current-branch` %{${fg[cyan]}%}[%~]%{${reset_color}%}'
 
 # auto change directory
 #
