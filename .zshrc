@@ -176,6 +176,13 @@ case "${OSTYPE}" in
     ;;
 esac
 
+case "${OSTYPE}" in
+    cygwin*)
+        alias open='cygstart'
+        alias emacs='/cygdrive/c/cygwin/app/emacs24.2/bin/emacs.exe -rv'
+        ;;
+esac
+
 alias la="ls -a"
 alias lf="ls -F"
 alias ll="ls -l"
