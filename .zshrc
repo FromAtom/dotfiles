@@ -1,4 +1,4 @@
-##-*- coding: utf-8 -*-
+##-*- coding: utf-8-unix -*-
 #
 
 ##users generic .zshrc file for zsh(1)
