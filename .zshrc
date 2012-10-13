@@ -1,6 +1,3 @@
-alias open='cygstart'
-alias emacs='/cygdrive/c/cygwin/app/emacs24.2/bin/emacs.exe -rv'
-
 ##users generic .zshrc file for zsh(1)
 #
 export PATH=~/bin:/opt/local/bin:/opt/local/sbin/:$PATH

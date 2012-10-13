@@ -1,0 +1,26 @@
+[user]
+	name = Atom
+	email = fromatom@gmail.com
+[core]
+    excludesfile = ~/.gitignore
+
+[alias]
+    graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
+    st = status
+    df = diff
+    dfc = diff --cached
+    co = checkout
+    last = show -1 HEAD --stat -p
+    me = log --author=asonas
+    ci = commit
+    bull = pull
+    dfw = diff --color-words
+    b = branch
+    log = log --decorate
+    l = log --decorate
+    g = grep
+    fe = fetch
+    cp = cherry-pick
+[color]
+    ui = true
+    diff = true
