@@ -197,8 +197,13 @@
 # 
 # alias cd=cd_func
 
-alias open='cygstart'
-alias emacs='/cygdrive/c/cygwin/app/emacs24.2/bin/emacs.exe -rv'
+case "${OSTYPE}" in
+    cygwin*)
+        alias open='cygstart'
+        alias emacs='/cygdrive/c/cygwin/app/emacs24.2/bin/emacs.exe -rv'
+        ;;
+esac
+
 alias g='git'
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting

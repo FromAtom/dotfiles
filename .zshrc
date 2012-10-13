@@ -31,7 +31,7 @@ case ${UID} in
 esac
 
 ###ブランチ名を状態によって色変え
-#autoload -U colors; colors
+autoload -U colors; colors
 autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 
 function rprompt-git-current-branch {
@@ -69,6 +69,7 @@ setopt PROMPT_SUBST
 # set prompt
 #
 
+colors
 PROMPT="%{${fg[red]}%}%m:%n%%%{${reset_color}%} "
 PROMPT2="%{${fg[yellow]}%}%_%%%{${reset_color}%} "
 SPROMPT="%{${fg[yellow]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
@@ -176,12 +177,15 @@ esac
 alias la="ls -a"
 alias lf="ls -F"
 alias ll="ls -l"
+alias lla="ls -la"
+alias lal="ls -la"
 
 alias du="du -h"
 alias df="df -h"
 
 alias su="su -l"
 
+alias g='git'
 
 ## terminal configuration
 #
