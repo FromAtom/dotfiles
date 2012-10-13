@@ -1,3 +1,6 @@
+##-*- coding: utf-8 -*-
+#
+
 ##users generic .zshrc file for zsh(1)
 #
 export PATH=~/bin:/opt/local/bin:/opt/local/sbin/:$PATH
