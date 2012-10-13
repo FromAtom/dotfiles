@@ -8,6 +8,8 @@ export PATH=/Applications/Ghostscript.app:/Applications/Ghostscript.app/bin:$PAT
 
 
 
+#alias lynx="/Applications/Lynxlet.app/Contents/Resources/lynx/bin/lynx"
+
 ## use alc with w3m
 #
 function alc() {
