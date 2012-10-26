@@ -184,7 +184,10 @@ case "${OSTYPE}" in
         alias open='cygstart'
         alias emacs='/cygdrive/c/cygwin/app/emacs24.2/bin/emacs.exe -rv'
         ;;
+    darwin*)
+        alias 'emacs=/Applications/Emacs.app/Contents/MacOS/emacs'
 esac
+
 
 alias la="ls -a"
 alias lf="ls -F"

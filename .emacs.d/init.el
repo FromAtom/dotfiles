@@ -72,6 +72,13 @@
 (add-hook 'after-init-hook (lambda()(eshell)))
 
 
+;;YaTeX設定
+(setq auto-mode-alist
+      (cons (cons "\\.tex$" 'yatex-mode) auto-mode-alist))
+(autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
+
+(setq load-path (cons "~/src/emacs/yatex" load-path))
+
 
 
 (add-to-list 'load-path "~/.emacs.d/elisp/")
