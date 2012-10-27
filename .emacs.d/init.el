@@ -52,6 +52,8 @@
 ;;Ruby用elispを読み込み
 (load "init-ruby")
 
+(load "init-haml")
+
 
 ;;auto-installを読み込み
 (when (require 'auto-install nil t)
