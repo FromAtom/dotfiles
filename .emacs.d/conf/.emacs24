@@ -256,3 +256,6 @@ ad-do-it))
 ;;矩形選択を有効に
 (cua-mode t)
 (setq cua-enable-cua-key nil)
+
+;;保存時に行末のスペースを削除
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
