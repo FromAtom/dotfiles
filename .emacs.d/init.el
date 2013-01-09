@@ -51,8 +51,20 @@
 
 ;;Ruby用elispを読み込み
 (load "init-ruby")
-
 (load "init-haml")
+(load "init-tex")
+
+
+;;YaTeX設定
+(setq auto-mode-alist
+      (cons (cons "\\.tex$" 'yatex-mode) auto-mode-alist))
+(autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
+(add-hook 'yatex-mode-hook'(lambda ()(setq auto-fill-function nil)))
+(setq load-path (cons "~/src/emacs/yatex" load-path))
+
+(setq bibtex-command "pbibtex -kanji=utf8")
+(setq YaTeX-kanji-code 4)
+
 
 
 ;;auto-installを読み込み
@@ -72,15 +84,6 @@
 
 ;;起動時にEshellも起動
 (add-hook 'after-init-hook (lambda()(eshell)))
-
-
-;;YaTeX設定
-(setq auto-mode-alist
-      (cons (cons "\\.tex$" 'yatex-mode) auto-mode-alist))
-(autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
-
-(setq load-path (cons "~/src/emacs/yatex" load-path))
-
 
 
 (add-to-list 'load-path "~/.emacs.d/elisp/")

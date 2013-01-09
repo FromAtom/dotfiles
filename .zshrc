@@ -1,6 +1,8 @@
 ##-*- coding: utf-8-unix -*-
 #
 
+source notfound.zsh
+
 ##users generic .zshrc file for zsh(1)
 #
 export PATH=~/bin:/opt/local/bin:/opt/local/sbin/:$PATH
@@ -48,7 +50,7 @@ function rprompt-git-current-branch {
     if [[ -z $name ]]; then
         return
     fi
-    
+
     gitdir=`git rev-parse --git-dir 2> /dev/null`
     action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
 
@@ -78,7 +80,7 @@ colors
 PROMPT="%{${fg[red]}%}%m:%n%%%{${reset_color}%} "
 PROMPT2="%{${fg[yellow]}%}%_%%%{${reset_color}%} "
 SPROMPT="%{${fg[yellow]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
-[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && 
+[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
 PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
 
 #RPROMPT='`rprompt-git-current-branch` [%~]'
@@ -256,7 +258,3 @@ esac
 
 ##For rvm
 if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
-
-
-
-

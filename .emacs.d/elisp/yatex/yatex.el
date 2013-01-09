@@ -53,7 +53,7 @@ YaTeX-current-position-register.")
    (t "latex"))
   "*Default command for typesetting LaTeX text.")
 
-(defvar bibtex-command (if YaTeX-japan "jbibtex" "bibtex")
+(defvar bibtex-command (if YaTeX-japan "jbibtex --kanji=utf8" "bibtex")
   "*Default command of BibTeX.")
 
 (defvar dvi2-command		;previewer command for your site
@@ -150,7 +150,7 @@ for YaTeX-uncomment-paragraph.")
   "*Paragraph delimiter regexp of common LaTeX source.  Use this value
 for YaTeX-uncomment-paragraph.")
 
-(defvar YaTeX-verbatim-environments 
+(defvar YaTeX-verbatim-environments
   '("verbatim" "verbatim*" "alltt")
   "*Assume these environments of this variable disable LaTeX commands.")
 (defvar YaTeX-verb-regexp "verb\\*?\\|path"
@@ -422,7 +422,7 @@ nil enters both open/close parentheses when opening parentheses key pressed.")
 ;;;
 ;; Define key table
 ;;;
-(if YaTeX-mode-map 
+(if YaTeX-mode-map
     nil
   (setq YaTeX-mode-map (make-sparse-keymap))
   (setq YaTeX-prefix-map (make-sparse-keymap))
@@ -607,7 +607,7 @@ nil: Do not care (Preserve coding-system)
 		\\[YaTeX-change-*]
 -Kill LaTeX command/environment sequences by
 		\\[YaTeX-kill-*]
--Kill LaTeX command/environment with its contents 
+-Kill LaTeX command/environment with its contents
 		\\[universal-argument] \\[YaTeX-kill-*]
 -Go to corresponding object (begin/end, file, labels) by
 		\\[YaTeX-goto-corresponding-*]   or
@@ -1104,7 +1104,7 @@ into {\\xxx } braces.
       (message "Nothing to complete.")   ;Do not complete
     (let* ((end (point))
 	   (limit (point-beginning-of-line))
-	   (completion-begin 
+	   (completion-begin
 	    (progn (re-search-backward "[ \t\n]" limit 1) (point)))
 	   (begin (progn
 		    (goto-char end)
@@ -1736,7 +1736,7 @@ search-last-string, you can repeat search the same label/ref by typing
 		 "\\\\bibitem\\(\\[[^]]+\\]\\)?{%k}\\|^\\s *@[a-z]+{%k,")
 		("bibitem" . "\\\\cite\\(\\[[^]]+\\]\\)?")))))
       (goto-char (match-end 0))
-      (let ((label (YaTeX-buffer-substring 
+      (let ((label (YaTeX-buffer-substring
 		    (1- (point)) (progn (backward-list 1) (1+ (point)))))
 	    (fp (make-marker))fl fn
 	    (goother (function (lambda (buffer point)
@@ -2283,7 +2283,7 @@ This function assumes that pairs occupy whole of each line where they resid."
 		(setq e1
 		      (progn
 			(goto-char e1)
-			(while (looking-at "{\\| \t") 
+			(while (looking-at "{\\| \t")
 			  (forward-list 1))
 			(skip-chars-forward " \t")
 			(if (and (eolp) (not (eobp)))
