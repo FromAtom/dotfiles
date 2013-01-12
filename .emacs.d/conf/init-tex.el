@@ -5,6 +5,7 @@
 (add-hook 'yatex-mode-hook '(lambda ()(setq auto-fill-function nil)))
 (setq load-path (cons "~/src/emacs/yatex" load-path))
 
+(setq tex-command "platex -kanji=utf8")
 (setq bibtex-command "pbibtex -kanji=utf8")
 (setq YaTeX-kanji-code 4)
 
