@@ -14,6 +14,9 @@
         '(height . 60) ; 高さ(行数)
         '(top . 20) ; フレーム左上角 y 座標
         '(left . 0) ; フレーム左上角 x 座標
+        '(background-color . "gray2")
+        '(foreground-color . "White")
+        '(cursor-color . "Green")
         )
        default-frame-alist)
       )
