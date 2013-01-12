@@ -3,3 +3,5 @@
 *.dat
 eshell/history
 eshell/lastdir
+.#.*
+.DS*
