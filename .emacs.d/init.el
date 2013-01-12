@@ -55,18 +55,6 @@
 (load "init-tex")
 
 
-;;YaTeX設定
-(setq auto-mode-alist
-      (cons (cons "\\.tex$" 'yatex-mode) auto-mode-alist))
-(autoload 'yatex-mode "yatex" "Yet Another LaTeX mode" t)
-(add-hook 'yatex-mode-hook'(lambda ()(setq auto-fill-function nil)))
-(setq load-path (cons "~/src/emacs/yatex" load-path))
-
-(setq bibtex-command "pbibtex -kanji=utf8")
-(setq YaTeX-kanji-code 4)
-
-
-
 ;;auto-installを読み込み
 (when (require 'auto-install nil t)
   (setq auto-install-directory "~/.emacs.d/elisp/")

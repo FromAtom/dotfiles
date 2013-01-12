@@ -162,7 +162,7 @@ major-mode
 (ad-activate 'font-lock-mode)
 
 
-;; 特定の拡張子を新規作成したとき、特定の文字コードを適用する
+;; 特定の拡張子を新規作成したとき，特定の文字コードを適用する
 (modify-coding-system-alist 'file "\\.rb\\'" 'utf-8-unix)
 (modify-coding-system-alist 'file "\\.cgi\\'" 'utf-8-unix)
 
@@ -251,7 +251,6 @@ ad-do-it))
     (end-of-buffer)
     )
   )
-
 
 ;;矩形選択を有効に
 (cua-mode t)
