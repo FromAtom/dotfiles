@@ -7,7 +7,14 @@
 
 (setq tex-command "platex -kanji=utf8")
 (setq bibtex-command "pbibtex -kanji=utf8")
-(setq YaTeX-kanji-code 4)
+(setq dvi2-command "open -a Preview.app")
+(setq YaTeX-kanji-code nil)
+
+
+(setq YaTeX-dvi2-command-ext-alist
+  '(("xdvi\\|dvipdfmx" . ".dvi")
+    ("ghostview\\|gv" . ".ps")
+    ("acroread\\|pdf\\|Preview\\|TeXShop" . ".pdf")))
 
 ;;バッファ全体の句読点と読点をコンマとピリオドに変換
 (defun replace-commaperiod-buffer ()
