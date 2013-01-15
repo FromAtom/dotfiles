@@ -1,7 +1,7 @@
 ##-*- coding: utf-8-unix -*-
 #
 
-source notfound.zsh
+#source notfound.zsh
 
 ##users generic .zshrc file for zsh(1)
 #
