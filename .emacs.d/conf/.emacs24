@@ -23,7 +23,7 @@
 
 
 ;;オレオレカラー設定はこっち
-(if window-system
+'(if window-system
     (progn
       (set-background-color "gray2")
       (set-foreground-color "White")
@@ -61,7 +61,7 @@
 (display-time-mode t)
 
 ;;バッテリー残量を表示
-;(display-battery-mode t)
+'(display-battery-mode t)
 ;;------------------------/
 
 
@@ -73,7 +73,7 @@
      (:background "LightGoldenrodYellow" t))
     (t (:bold t)))
   "hl-line's my face")
-;(setq hl-line-face 'my-hl-line-face)
+'(setq hl-line-face 'my-hl-line-face)
 '(global-hl-line-mode 0)
 
 
@@ -97,7 +97,9 @@
 
 ;;行番号を表示
 ;(global-linum-mode t)
-
+(require 'linum)
+(global-linum-mode)
+(set-face-font 'mode-line "Migu 1M-14")
 
 ;;tabを入力しない様にする
 (setq-default tab-width 4)
@@ -105,14 +107,14 @@
 
 
 ;; デフォルトの透明度を設定する
-(add-to-list 'default-frame-alist '(alpha . 85))
+(add-to-list 'default-frame-alist '(alpha . 90))
 
 ;; カレントウィンドウの透明度を変更する (85%)
 ;;(set-frame-parameter nil 'alpha 0.85)
-(set-frame-parameter nil 'alpha 85)
+(set-frame-parameter nil 'alpha 90)
 
 ;; erase memubar, scrollbar
-(menu-bar-mode -1) ;画面上に出るメニュー(文字)を消す
+(menu-bar-mode -1) ;画面上に出るメニュー(y文字)を消す
 (scroll-bar-mode -1) ;画面横に出るスクロールバーを消す
 (tool-bar-mode -1) ;画面上に出るツールバー(アイコン画像)を消す
 (setq cursor-in-non-selected-windows nil) ;非active windowにはカーソルを表示しない
@@ -128,9 +130,10 @@
 ;; 日本語Fontの設定
 (set-fontset-font
 nil 'japanese-jisx0208
-(font-spec :family "Migu 1M"))
+(font-spec :family "Migu 1M" :size 14))
 
-
+(setq face-font-rescale-alist
+      '((".*Migu 1M.*" . 1.2)))
 
 ;;スクロールを1行ごとに
 (defun scroll-down-with-lines ()
@@ -194,6 +197,7 @@ major-mode
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.as\\'" . java-mode))
 (add-to-list 'auto-mode-alist '("\\.pde\\'" . java-mode))
+(add-to-list 'auto-mode-alist '("\\.ino\\'" . java-mode))
 
 ;; tmp file saving directory
 (setq auto-save-list-file-prefix "~/local/.emacs.d/.saves-")
