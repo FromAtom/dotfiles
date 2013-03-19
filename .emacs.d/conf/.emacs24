@@ -96,10 +96,11 @@
 (setq frame-title-format "%f")
 
 ;;行番号を表示
-;(global-linum-mode t)
 (require 'linum)
-(global-linum-mode)
-(set-face-font 'mode-line "Migu 1M-14")
+(global-linum-mode t)
+(set-face-font 'mode-line "Migu 1M-12")
+(setq linum-format "%3d")
+
 
 ;;tabを入力しない様にする
 (setq-default tab-width 4)
@@ -197,7 +198,7 @@ major-mode
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.as\\'" . java-mode))
 (add-to-list 'auto-mode-alist '("\\.pde\\'" . java-mode))
-(add-to-list 'auto-mode-alist '("\\.ino\\'" . java-mode))
+(add-to-list 'auto-mode-alist '("\\.inoy\\'" . java-mode))
 
 ;; tmp file saving directory
 (setq auto-save-list-file-prefix "~/local/.emacs.d/.saves-")
@@ -221,7 +222,6 @@ major-mode
 (setq time-stamp-line-limit 40)
 (setq time-stamp-format "%3b %02d %:y")
 (setq system-time-locale "C")
-
 
 
 ;; 前回編集していた場所を記憶し，ファイルを開いた時にそこへカーソルを移動

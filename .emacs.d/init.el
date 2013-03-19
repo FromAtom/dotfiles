@@ -53,6 +53,7 @@
 (load "init-ruby")
 (load "init-haml")
 (load "init-tex")
+(load "init-modeline")
 
 
 ;;auto-installを読み込み
