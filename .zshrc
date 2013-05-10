@@ -1,16 +1,23 @@
 ##-*- coding: utf-8-unix -*-
 #
 
-source notfound.zsh
+#source notfound.zsh
 
 ##users generic .zshrc file for zsh(1)
 #
-export PATH=~/bin:/opt/local/bin:/opt/local/sbin/:$PATH
+export PATH=~/bin:/opt/local:$PATH
 
 ##For Ghostscript
 #
 export PATH=/Applications/Ghostscript.app:/Applications/Ghostscript.app/bin:$PATH
 
+##For homebrew PATH
+export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/sbin:$PATH
+
+##For rbenv PATH
+PATH=$HOME/.rbenv/bin:$PATH
+eval "$(rbenv init -)"
 
 
 #alias lynx="/Applications/Lynxlet.app/Contents/Resources/lynx/bin/lynx"
@@ -254,7 +261,3 @@ esac
 ## load user .zshrc configuration file
 #
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
-
-
-##For rvm
-if [[ -s ~/.rvm/scripts/rvm ]] ; then source ~/.rvm/scripts/rvm ; fi
