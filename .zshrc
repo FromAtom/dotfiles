@@ -85,7 +85,7 @@ setopt PROMPT_SUBST
 
 colors
 #PROMPT="%m:%n%%%{${reset_color}%} "
-PROMPT="%{${fg[red]}%}(´・3・) %{${reset_color}%}"
+PROMPT="%{${fg[grew]}%}☁  %{${reset_color}%}"
 PROMPT2="%{${fg[yellow]}%}%_%%%{${reset_color}%} "
 SPROMPT="%{${fg[yellow]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
