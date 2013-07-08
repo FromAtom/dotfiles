@@ -49,8 +49,9 @@
 (load ".emacs24")
 
 
-;;Ruby用elispを読み込み
+;;各種専用elispを読み込み
 (load "init-ruby")
+(load "init-perl")
 (load "init-haml")
 (load "init-tex")
 (load "init-modeline")
