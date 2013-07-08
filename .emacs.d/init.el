@@ -44,6 +44,7 @@
 ;; confを読み込みに追加
 (add-to-load-path "elisp")
 (add-to-load-path "conf")
+(add-to-load-path "public_repos")
 
 ;; .emacs22を読み込み
 (load ".emacs24")
@@ -51,6 +52,7 @@
 
 ;;各種専用elispを読み込み
 (load "init-ruby")
+(load "init-yaml")
 (load "init-perl")
 (load "init-haml")
 (load "init-tex")
