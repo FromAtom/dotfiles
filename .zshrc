@@ -19,6 +19,21 @@ export PATH=/usr/local/sbin:$PATH
 PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 
+##For perlbrew
+export PERLBREW_ROOT=$HOME/.perlbrew
+source ~/.perlbrew/etc/bashrc
+
+##For cpanminus
+if which cpanm > /dev/null 2>&1 && [ -n $PERLBREW_ROOT ]; then
+    export PERL_CPANM_OPT=--local-lib=$PERLBREW_ROOT
+    export PERL5LIB=$PERLBREW_ROOT/lib/perl5:$PERL5LIB
+fi
+
+
+##For zsh-completions
+autoload -U compinit
+compinit
+fpath=(/path/to/homebrew/share/zsh-completions $fpath)
 
 #alias lynx="/Applications/Lynxlet.app/Contents/Resources/lynx/bin/lynx"
 
@@ -151,13 +166,6 @@ HISTSIZE=50000
 SAVEHIST=50000
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
-
-
-## Completion configuration
-#
-fpath=(${HOME}/.zsh/functions/Completion ${fpath})
-autoload -U compinit
-compinit
 
 
 ## zsh editor
