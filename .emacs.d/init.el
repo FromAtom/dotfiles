@@ -23,7 +23,6 @@
   (setq locale-coding-system 'cp932)
   (set-file-name-coding-system 'cp932))
 
-
 ;; Load Path
 ;(setq load-path (cons "~/.emacs.d" load-path))
 
@@ -48,6 +47,15 @@
 
 ;; .emacs22を読み込み
 (load ".emacs24")
+
+;;emoji.el
+(require 'emoji)
+
+;;anything.el
+(require 'anything)
+(require 'anything-config)
+(add-to-list 'anything-sources 'anything-c-source-emacs-commands)
+(define-key global-map (kbd "C-;") 'anything)
 
 
 ;;各種専用elispを読み込み
@@ -89,6 +97,7 @@
   "*Face used by hl-line.")
 (setq hl-line-face 'hlline-face)
 (global-hl-line-mode)
+
 
 ;;smartchr
 (require 'smartchr)

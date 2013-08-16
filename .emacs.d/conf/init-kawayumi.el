@@ -17,4 +17,4 @@
 (set-pretty-patterns
  '((?λ ("\\<lambda\\>" lisp lisp-interaction emacs-lisp scheme))
    (?φ ("\\<nil\\>" lisp lisp-interaction emacs-lisp scheme))
-   (?λ ("\\<function\\>" js2))))
+   (?☆ ("\\<function\\>" js2))))
