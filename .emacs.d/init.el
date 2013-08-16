@@ -52,38 +52,90 @@
 
 ;;各種専用elispを読み込み
 (load "init-ruby")
+(load "init-kawayumi")
 (load "init-yaml")
 (load "init-perl")
 (load "init-haml")
 (load "init-tex")
 (load "init-modeline")
 
+;;バッファ自動再読み込み
+(global-auto-revert-mode 1)
 
 ;;auto-installを読み込み
-'(when (require 'auto-install nil t)
+(when (require 'auto-install nil t)
   (setq auto-install-directory "~/.emacs.d/elisp/")
   (auto-install-update-emacswiki-package-name t)
   (auto-install-compatibility-setup))
 
 
-(require 'shell-pop)
-(shell-pop-set-window-height 50)
-(shell-pop-set-internal-mode "eshell")
-(shell-pop-set-internal-mode-shell "/bin/zsh")
-(global-set-key "\C-t" 'shell-pop)
+'(require 'shell-pop)
+'(shell-pop-set-window-height 50)
+'(shell-pop-set-internal-mode "eshell")
+'(shell-pop-set-internal-mode-shell "/bin/zsh")
+'(global-set-key "\C-t" 'shell-pop)
 
 
+;;対応行を強調表示
+(defface hlline-face
+  '((((class color)
+      (background dark))
+     (:background "dark slate gray"))
+    (((class color)
+      (background light))
+     (:background  "#98FB98"))
+    (t
+     ()))
+  "*Face used by hl-line.")
+(setq hl-line-face 'hlline-face)
+(global-hl-line-mode)
+
+;;smartchr
+(require 'smartchr)
+(add-hook 'cperl-mode-hook
+          '(lambda ()
+             (progn
+               (local-set-key (kbd "F") (smartchr '("F" "$")))
+               (local-set-key (kbd "H") (smartchr '("H" " => ")))
+               (local-set-key (kbd "J") (smartchr '("J" "->")))
+               (local-set-key (kbd "M") (smartchr '("M" "my ")))
+               (local-set-key (kbd "D") (smartchr '("D" "use Data::Dumper; print Dumper ")))
+               )))
+
+;;Windows分割
+(defun split-window-vertically-n (num_wins)
+  (interactive "p")
+  (if (= num_wins 2)
+      (split-window-vertically)
+    (progn
+      (split-window-vertically
+       (- (window-height) (/ (window-height) num_wins)))
+      (split-window-vertically-n (- num_wins 1)))))
+(defun split-window-horizontally-n (num_wins)
+  (interactive "p")
+  (if (= num_wins 2)
+      (split-window-horizontally)
+    (progn
+      (split-window-horizontally
+       (- (window-width) (/ (window-width) num_wins)))
+      (split-window-horizontally-n (- num_wins 1)))))
+
+(defun other-window-or-split ()
+  (interactive)
+  (when (one-window-p)
+    (if (>= (window-body-width) 200)
+        (split-window-horizontally-n 3)
+      (split-window-horizontally)))
+  (other-window 1))
+
+(global-set-key (kbd "C-t") 'other-window-or-split)
 
 ;;起動時にEshellも起動
 (add-hook 'after-init-hook (lambda()(eshell)))
-
 
 (add-to-list 'load-path "~/.emacs.d/elisp/")
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp//ac-dict")
 (ac-config-default)
-
-
-
 
 ;; end of file

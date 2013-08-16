@@ -196,10 +196,11 @@ major-mode
 (add-to-list 'auto-mode-alist '("\\.ino\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.h\\'" . c++-mode))
 (add-to-list 'auto-mode-alist '("\\.pl\\'" . perl-mode))
+(add-to-list 'auto-mode-alist '("\\.t\\'" . perl-mode))
 (add-to-list 'auto-mode-alist '("\\.rb\\'" . ruby-mode))
 (add-to-list 'auto-mode-alist '("\\.as\\'" . java-mode))
 (add-to-list 'auto-mode-alist '("\\.pde\\'" . java-mode))
-
+(add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
 
 ;; tmp file saving directory
 (setq auto-save-list-file-prefix "~/local/.emacs.d/.saves-")
@@ -236,8 +237,6 @@ major-mode
 (set-text-properties 0 (length new) nil new)
 ad-do-it))
 
-
-
 ;;(cd "~") ;start on home directory
 (cd "./") ;start on current directory
 (setq-default indent-tabs-mode nil) ;When pushing [TAB], spaces are input.
@@ -245,7 +244,6 @@ ad-do-it))
 
 ;;ビープ音消去
 (setq ring-bell-function 'ignore)
-
 
 ;;起動時にEshellでシェルのカレントディレクトリに移動
 (defun eshell-in-the-directory (targetdir)

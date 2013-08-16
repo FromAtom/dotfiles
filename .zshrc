@@ -24,10 +24,10 @@ export PERLBREW_ROOT=$HOME/.perlbrew
 source ~/.perlbrew/etc/bashrc
 
 ##For cpanminus
-if which cpanm > /dev/null 2>&1 && [ -n $PERLBREW_ROOT ]; then
-    export PERL_CPANM_OPT=--local-lib=$PERLBREW_ROOT
-    export PERL5LIB=$PERLBREW_ROOT/lib/perl5:$PERL5LIB
-fi
+# if which cpanm > /dev/null 2>&1 && [ -n $PERLBREW_ROOT ]; then
+#     export PERL_CPANM_OPT=--local-lib=$PERLBREW_ROOT
+#     export PERL5LIB=$PERLBREW_ROOT/lib/perl5:$PERL5LIB
+# fi
 
 
 ##For zsh-completions
@@ -206,7 +206,7 @@ case "${OSTYPE}" in
         alias 'emacs=/Applications/Emacs.app/Contents/MacOS/emacs'
 esac
 
-
+alias ks="ls"
 alias la="ls -a"
 alias lf="ls -F"
 alias ll="ls -l"
