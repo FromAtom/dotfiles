@@ -20,7 +20,8 @@ PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 
 ##For perlbrew
-export PERLBREW_ROOT=$HOME/.perlbrew
+#export PERL5LIB=$HOME/perl5/lib/perl5
+#export PERLBREW_ROOT=$HOME/.perlbrew
 source ~/.perlbrew/etc/bashrc
 
 ##For cpanminus
