@@ -201,6 +201,7 @@ major-mode
 (add-to-list 'auto-mode-alist '("\\.as\\'" . java-mode))
 (add-to-list 'auto-mode-alist '("\\.pde\\'" . java-mode))
 (add-to-list 'auto-mode-alist '("\\.js$" . js2-mode))
+(add-to-list 'auto-mode-alist '("\\.tt$" . html-mode))
 
 ;; tmp file saving directory
 (setq auto-save-list-file-prefix "~/local/.emacs.d/.saves-")

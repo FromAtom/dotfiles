@@ -66,6 +66,7 @@
 (load "init-haml")
 (load "init-tex")
 (load "init-modeline")
+(load "init-less")
 
 ;;バッファ自動再読み込み
 (global-auto-revert-mode 1)
@@ -138,6 +139,8 @@
   (other-window 1))
 
 (global-set-key (kbd "C-t") 'other-window-or-split)
+
+;;
 
 ;;起動時にEshellも起動
 (add-hook 'after-init-hook (lambda()(eshell)))
