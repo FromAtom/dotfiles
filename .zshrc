@@ -36,6 +36,9 @@ autoload -U compinit
 compinit
 fpath=(/path/to/homebrew/share/zsh-completions $fpath)
 
+##For less
+alias lessc=”~/node_modules/less/bin/lessc”
+
 #alias lynx="/Applications/Lynxlet.app/Contents/Resources/lynx/bin/lynx"
 
 ## use alc with w3m
