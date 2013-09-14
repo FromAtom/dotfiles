@@ -3,6 +3,7 @@
 	email = fromatom@gmail.com
 [core]
     excludesfile = ~/.gitignore
+	excludesfile = /Users/bossme/.gitignore
 
 [alias]
     graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
@@ -21,6 +22,11 @@
     g = grep
     fe = fetch
     cp = cherry-pick
+
 [color]
     ui = true
     diff = true
+
+[url "git@repository.admin.h:/var/git/"]
+  insteadof = git://192.168.2.181/
+  insteadof = git://repository.admin.h/
