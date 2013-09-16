@@ -1,6 +1,7 @@
 .*~
 *~
 *.dat
+eshell
 eshell/history
 eshell/lastdir
 *.o
