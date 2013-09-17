@@ -7,3 +7,6 @@
 [submodule ".emacs.d/public_repos/emoji"]
 	path = .emacs.d/public_repos/emoji
 	url = git@github.com:imakado/emoji.git
+[submodule ".emacs.d/public_repos/less-mode"]
+	path = .emacs.d/public_repos/less-mode
+	url = git@github.com:myfreeweb/less-mode.git
