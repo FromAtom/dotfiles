@@ -4,3 +4,6 @@
 [submodule ".emacs.d/public_repos/emacs-smartchr"]
 	path = .emacs.d/public_repos/emacs-smartchr
 	url = git@github.com:imakado/emacs-smartchr.git
+[submodule ".emacs.d/public_repos/emoji"]
+	path = .emacs.d/public_repos/emoji
+	url = git@github.com:imakado/emoji.git
