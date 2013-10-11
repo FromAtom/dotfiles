@@ -71,6 +71,13 @@
 ;;バッファ自動再読み込み
 (global-auto-revert-mode 1)
 
+;;ファイル名の補完で大文字小文字を区別しない
+(setq completion-ignore-case t)
+
+;;同名ファイルのバッファ名の識別文字列を変更
+(require 'uniquify)
+(setq uniquify-buffer-name-style 'post-forward-angle-brackets)
+
 ;;auto-installを読み込み
 (when (require 'auto-install nil t)
   (setq auto-install-directory "~/.emacs.d/elisp/")
@@ -149,5 +156,10 @@
 (require 'auto-complete-config)
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/elisp//ac-dict")
 (ac-config-default)
+
+;;emacs serverを起動
+(require 'server)
+(unless (server-running-p)
+  (server-start))
 
 ;; end of file

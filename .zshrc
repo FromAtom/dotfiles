@@ -31,6 +31,10 @@ source ~/perl5/perlbrew/etc/bashrc
 #     export PERL5LIB=$PERLBREW_ROOT/lib/perl5:$PERL5LIB
 # fi
 
+##For zsh-highlighting
+if [ -f ~/projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source ~/projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
 
 ##For zsh-completions
 autoload -U compinit
@@ -205,7 +209,9 @@ esac
 case "${OSTYPE}" in
     cygwin*)
         alias open='cygstart'
-        alias emacs='/cygdrive/c/cygwin/app/emacs24.2/bin/emacs.exe -rv'
+        alias e='/usr/local/bin/emacsclient -n'
+#        alias emacs='/cygdrive/c/cygwin/app/emacs24.2/bin/emacs.exe -rv'
+        alias emacs='/usr/local/bin/emacsclient -n'
         ;;
     darwin*)
         alias 'emacs=/Applications/Emacs.app/Contents/MacOS/emacs'
@@ -275,3 +281,6 @@ esac
 ## load user .zshrc configuration file
 #
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
