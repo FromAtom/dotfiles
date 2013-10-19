@@ -116,7 +116,7 @@
                (local-set-key (kbd "H") (smartchr '("H" " => ")))
                (local-set-key (kbd "J") (smartchr '("J" "->")))
                (local-set-key (kbd "M") (smartchr '("M" "my ")))
-               (local-set-key (kbd "D") (smartchr '("D" "use Data::Dumper; print Dumper ")))
+               (local-set-key (kbd "D") (smartchr '("D" "use Data::Dumper; warn Dumper ")))
                )))
 
 ;;Windows分割
