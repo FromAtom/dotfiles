@@ -45,7 +45,7 @@
 (add-to-load-path "conf")
 (add-to-load-path "public_repos")
 
-;; .emacs22を読み込み
+;; .emacs24を読み込み
 (load ".emacs24")
 
 ;;emoji.el
@@ -57,7 +57,6 @@
 (add-to-list 'anything-sources 'anything-c-source-emacs-commands)
 (define-key global-map (kbd "C-;") 'anything)
 
-
 ;;各種専用elispを読み込み
 (load "init-ruby")
 (load "init-kawayumi")
@@ -67,6 +66,7 @@
 (load "init-tex")
 (load "init-modeline")
 (load "init-less")
+(load "init-rhtml")
 
 ;;バッファ自動再読み込み
 (global-auto-revert-mode 1)
