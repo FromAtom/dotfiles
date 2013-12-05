@@ -11,5 +11,5 @@
 	path = .emacs.d/public_repos/less-mode
 	url = git@github.com:myfreeweb/less-mode.git
 [submodule ".emacs.d/public_repos/rhtml"]
-	path = .emacs.d/public_repos/rhtmk
+	path = .emacs.d/public_repos/rhtml
 	url = git@github.com:eschulte/rhtml.git
