@@ -16,7 +16,7 @@ export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 
 ##For rbenv PATH
-PATH=$HOME/.rbenv/bin:$PATH
+export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
 
 ##For perlbrew
