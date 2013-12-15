@@ -44,7 +44,11 @@
 (defun replace-commaperiod-before-save-if-needed ()
   (when (memq major-mode
               '(yatex-mode))
-    (replace-commaperiod-buffer)(hankaku-eisuu-buffer)))
+    (replace-commaperiod-buffer)(hankaku-eisuu-buffer)(ispell)))
 
-;;保存前フックに追加
 (add-hook 'before-save-hook 'replace-commaperiod-before-save-if-needed)
+
+;;flyspell-mode
+(mapc
+ (lambda (hook)(add-hook hook '(lambda () (flyspell-mode 1))))
+ '(yatex-mode-hook))

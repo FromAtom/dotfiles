@@ -1,8 +1,7 @@
 ;;; -*- mode: lisp-interaction; syntax: elisp -*-
 
-
-;; keyset
-(global-set-key "\C-h" 'backward-delete-char) ;C-h as BackSpace
+;; key-set
+(global-set-key "\C-h" 'backward-delete-char) ;C-h as Backspace
 (global-set-key "\M-?" 'help-for-help) ;M-? as help
 (global-set-key "\C-q" 'dabbrev-expand)
 
@@ -63,6 +62,7 @@
 (load "init-yaml")
 (load "init-perl")
 (load "init-haml")
+(load "init-ispell")
 (load "init-tex")
 (load "init-modeline")
 (load "init-less")
@@ -146,8 +146,6 @@
   (other-window 1))
 
 (global-set-key (kbd "C-t") 'other-window-or-split)
-
-;;
 
 ;;起動時にEshellも起動
 (add-hook 'after-init-hook (lambda()(eshell)))
