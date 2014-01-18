@@ -8,7 +8,8 @@
 
 ;; 文字コードをUTF-8に
 (set-language-environment "Japanese")
-(prefer-coding-system 'utf-8)
+(prefer-coding-system 'utf-8-unix)
+(set-default-coding-systems 'utf-8-unix)
 
 ;; Max OS Xのファイルネーム設定
 (when (eq system-type 'darwin)

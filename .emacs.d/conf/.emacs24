@@ -43,6 +43,10 @@
 ;; リージョンに色をつける
 (setq transient-mark-mode t)
 
+;; Emacs-BGEX patch
+(require 'bgex)
+(bgex-set-color "*scratch*" 'bgex-identifier-type-buffer-name "skyblue")
+
 ;;-------------------------/
 
 
