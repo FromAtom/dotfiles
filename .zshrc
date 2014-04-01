@@ -31,6 +31,8 @@ source ~/perl5/perlbrew/etc/bashrc
 #     export PERL5LIB=$PERLBREW_ROOT/lib/perl5:$PERL5LIB
 # fi
 
+#For cabal
+PATH=${HOME}/.cabal/bin:$PATH
 
 ##For zsh-highlighting
 if [ -f ~/projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
