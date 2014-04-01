@@ -31,9 +31,6 @@ source ~/perl5/perlbrew/etc/bashrc
 #     export PERL5LIB=$PERLBREW_ROOT/lib/perl5:$PERL5LIB
 # fi
 
-##For zsh-notify
-source ~/.zsh.d/zsh-notify/notify.plugin.zsh
-export NOTIFY_COMMAND_COMPLETE_TIMEOUT=10
 
 ##For zsh-highlighting
 if [ -f ~/projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
