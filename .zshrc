@@ -68,22 +68,11 @@ function groot() {
     fi
 }
 
-## Interactive git add with peco
-## Command: C-g C-a
-#
-function peco-select-gitadd() {
-    local SELECTED_FILE_TO_ADD="$(git status --porcelain | \
-                                  peco --query "$LBUFFER" | \
-                                  awk -F ' ' '{print $NF}')"
-    if [ -n "$SELECTED_FILE_TO_ADD" ]; then
-      BUFFER="git add $(echo "$SELECTED_FILE_TO_ADD" | tr '\n' ' ')"
-      CURSOR=$#BUFFER
-    fi
-    zle accept-line
-    # zle clear-screen
-}
-zle -N peco-select-gitadd
-bindkey "^g^a" peco-select-gitadd
+# setting for peco
+for f (~/.zsh/peco-sources/*) source "${f}" # load peco sources
+bindkey '^r' peco-select-history
+bindkey '^@' peco-cdr
+bindkey "^g^a" peco-select-git-add
 
 ## Environment variable configuration
 #
