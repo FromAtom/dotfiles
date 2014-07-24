@@ -1,14 +1,15 @@
 [user]
-	name = Atom
-	email = fromatom@gmail.com
+    name = Atom
+		email = fromatom@gmail.com
 [core]
     excludesfile = ~/.gitignore
-	excludesfile = /Users/bossme/.gitignore
-	excludesfile = /Users/Atom/.gitignore
+		excludesfile = /Users/bossme/.gitignore
+		excludesfile = /Users/Atom/.gitignore
 
 [alias]
     graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
-    st = status
+    cl = clone --recursive
+		st = status
     df = diff
     dfc = diff --cached
     co = checkout
@@ -36,3 +37,5 @@
 [url "git@repository.admin.h:/var/git/"]
   insteadof = git://192.168.2.181/
   insteadof = git://repository.admin.h/
+[hub]
+	host = ghe.admin.h
