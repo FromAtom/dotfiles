@@ -68,11 +68,20 @@ function groot() {
     fi
 }
 
-# setting for peco
+## setting for peco
 for f (~/.zsh/peco-sources/*) source "${f}" # load peco sources
 bindkey '^r' peco-select-history
-bindkey '^@' peco-cdr
+bindkey '^u' peco-cdr
 bindkey "^g^a" peco-select-git-add
+
+
+## setting for cdr
+#
+autoload -Uz chpwd_recent_dirs cdr add-zsh-hook
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':chpwd:*' recent-dirs-max 5000
+zstyle ':chpwd:*' recent-dirs-default yes
+zstyle ':completion:*' recent-dirs-insert both
 
 ## Environment variable configuration
 #
