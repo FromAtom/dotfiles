@@ -73,6 +73,7 @@ for f (~/.zsh/peco-sources/*) source "${f}" # load peco sources
 bindkey '^r' peco-select-history
 bindkey '^u' peco-cdr
 bindkey "^g^a" peco-select-git-add
+bindkey "^g^b" peco-select-git-checkout
 
 
 ## setting for cdr
