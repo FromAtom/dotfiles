@@ -33,9 +33,3 @@
 [color]
     ui = true
     diff = true
-
-[url "git@repository.admin.h:/var/git/"]
-  insteadof = git://192.168.2.181/
-  insteadof = git://repository.admin.h/
-[hub]
-	host = ghe.admin.h
