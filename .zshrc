@@ -23,7 +23,7 @@ eval "$(rbenv init -)"
 #export PERL5LIB=$HOME/perl5/lib/perl5
 #export PERLBREW_ROOT=$HOME/.perlbrew
 #source ~/.perlbrew/etc/bashrc
-source ~/perl5/perlbrew/etc/bashrc
+#source ~/perl5/perlbrew/etc/bashrc
 
 ##For cpanminus
 # if which cpanm > /dev/null 2>&1 && [ -n $PERLBREW_ROOT ]; then
