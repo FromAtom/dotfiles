@@ -17,3 +17,8 @@ eshell/lastdir
 *.sw[po]
 tags
 *.snapshot
+el-get
+elpa
+ac-comphist.dat
+places
+recentf
