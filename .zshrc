@@ -116,7 +116,7 @@ function rprompt-git-current-branch {
     elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
         color=%F{yellow}
     elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-        color=%B%F{red}
+        color=%B%F{cyan}
     else
         color=%F{red}
     fi
@@ -314,4 +314,3 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 [[ -d /usr/local/opt/nvm ]] && export NVM_DIR=/usr/local/opt/nvm
 [[ -f $NVM_DIR/nvm.sh ]] && source $NVM_DIR/nvm.sh
-
