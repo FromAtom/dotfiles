@@ -1,8 +1,6 @@
 ##-*- coding: utf-8-unix -*-
 #
 
-#source notfound.zsh
-
 ##users generic .zshrc file for zsh(1)
 #
 export PATH=~/bin:/opt/local:$PATH
@@ -313,3 +311,7 @@ esac
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
+
+[[ -d /usr/local/opt/nvm ]] && export NVM_DIR=/usr/local/opt/nvm
+[[ -f $NVM_DIR/nvm.sh ]] && source $NVM_DIR/nvm.sh
+
