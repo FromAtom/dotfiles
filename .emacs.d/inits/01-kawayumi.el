@@ -18,4 +18,4 @@
 (set-pretty-patterns
  '((?λ ("\\<lambda\\>" lisp lisp-interaction emacs-lisp scheme))
    (?φ ("\\<nil\\>" lisp lisp-interaction emacs-lisp scheme))
-   (?☆ ("\\<function\\>" js2))))
+   (?☆ ("\\<function\\>" js2 javascript))))
