@@ -111,3 +111,8 @@
   (let ((new (ad-get-arg 0)))
     (set-text-properties 0 (length new) nil new)
     ad-do-it))
+
+;; emacs clientを起動する
+(require 'server)
+(unless (server-running-p)
+  (server-start))

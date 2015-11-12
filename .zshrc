@@ -241,7 +241,8 @@ case "${OSTYPE}" in
         alias emacs='/usr/local/bin/emacsclient -n'
         ;;
     darwin*)
-        alias 'emacs=/Applications/Emacs.app/Contents/MacOS/emacs'
+        alias e='/usr/local/bin/emacsclient -n'
+        alias emacs='/Applications/Emacs.app/Contents/MacOS/emacs'
 esac
 
 alias ks="ls"
