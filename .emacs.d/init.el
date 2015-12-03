@@ -22,6 +22,7 @@
 
 ;; modes
 (el-get-bundle swift-mode)
+(el-get-bundle web-mode)
 (el-get-bundle js2-mode)
 (el-get-bundle coffee-mode)
 
