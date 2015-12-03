@@ -22,7 +22,9 @@
   (set-file-name-coding-system 'cp932))
 
 ;; scratchの初期メッセージを変更
-(setq initial-scratch-message "Scratch!!!\n")
+(setq initial-scratch-message "╔═╗┬─┐┌─┐┌┬┐╔═╗┌┬┐┌─┐┌┬┐
+╠╣  ├┬┘│  ││││╠═╣  │  │  ││││
+╚    ┴└─└─┘┴  ┴╩  ╩  ┴  └─┘┴  ┴")
 
 ;; HTMLのMETAタグに'Shift_JIS'とか書かれてるとその形式で保存されてしまうのを防ぐ
 (setq auto-coding-functions nil)
