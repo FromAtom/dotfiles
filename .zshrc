@@ -73,6 +73,7 @@ bindkey '^u' peco-cdr
 bindkey "^g^a" peco-select-git-add
 bindkey "^g^b" peco-git-recent-branches
 bindkey "^g^b^a" peco-git-recent-all-branches
+bindkey "^h" peco-select-ssh
 
 ## setting for cdr
 #
