@@ -94,36 +94,69 @@ case ${UID} in
         ;;
 esac
 
-###ブランチ名を状態によって色変え
+### お試し
+#autoload vcs_info
+autoload -Uz is-at-least
+autoload -Uz vcs_info
+#autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 autoload -U colors; colors
-autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
 
-function rprompt-git-current-branch {
-    local name st color gitdir action
-    if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
-        return
-    fi
-    name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
-    if [[ -z $name ]]; then
-        return
-    fi
+zstyle ':vcs_info:*' max-exports 3
+zstyle ':vcs_info:*' enable git
+if is-at-least 4.3.10; then
+  zstyle ':vcs_info:git:*' formats '[%r](%b%c%u)' '%m'
+  zstyle ':vcs_info:git:*' actionformats '[%r](%b%c%u)' '%m' '<!%a>'
+  zstyle ':vcs_info:git:*' check-for-changes true
+  zstyle ':vcs_info:git:*' stagedstr "^"
+  zstyle ':vcs_info:git:*' unstagedstr "*"
+fi
 
-    gitdir=`git rev-parse --git-dir 2> /dev/null`
-    action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
-
-    st=`git status 2> /dev/null`
-    if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-        color=%F{green}
-    elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-        color=%F{yellow}
-    elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-        color=%B%F{cyan}
-    else
-        color=%F{red}
-    fi
-
-    echo "(%{$color%}$name%{$reset_color%})"
+function _update_vcs_info_msg() {
+  local -a messages
+  local prompt
+  LANG=C vcs_info
+  if [[ -z ${vcs_info_msg_0_} ]]; then
+    prompt=""
+  else
+    [[ -n "$vcs_info_msg_0_" ]] && messages+=("%F{green}${vcs_info_msg_0_}%f")
+    [[ -n "$vcs_info_msg_1_" ]] && messages+=("%F{yellow}${vcs_info_msg_1_}%f")
+    [[ -n "$vcs_info_msg_2_" ]] && messages+=("%F{red}${vcs_info_msg_2_}%f")
+    prompt="${(j: :)messages}"
+  fi
+  RPROMPT="$prompt %{${fg[blue]}%}[`pwd | sed "s:$HOME:~:"`]%{${reset_color}%}"
 }
+add-zsh-hook precmd _update_vcs_info_msg
+
+
+# ###ブランチ名を状態によって色変え
+# autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
+
+# function rprompt-git-current-branch {
+#     local name st color gitdir action
+#     if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
+#         return
+#     fi
+#     name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
+#     if [[ -z $name ]]; then
+#         return
+#     fi
+
+#     gitdir=`git rev-parse --git-dir 2> /dev/null`
+#     action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
+
+#     st=`git status 2> /dev/null`
+#     if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
+#         color=%F{green}
+#     elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
+#         color=%F{yellow}
+#     elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
+#         color=%B%F{cyan}
+#     else
+#         color=%F{red}
+#     fi
+
+#     echo "(%{$color%}$name%{$reset_color%})"
+# }
 
 setopt PROMPT_SUBST
 
