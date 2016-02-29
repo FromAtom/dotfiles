@@ -98,17 +98,16 @@ esac
 #autoload vcs_info
 autoload -Uz is-at-least
 autoload -Uz vcs_info
-#autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
-autoload -U colors; colors
+autoload -Uz colors; colors
 
 zstyle ':vcs_info:*' max-exports 3
 zstyle ':vcs_info:*' enable git
 if is-at-least 4.3.10; then
-  zstyle ':vcs_info:git:*' formats '[%r](%b%c%u)' '%m'
-  zstyle ':vcs_info:git:*' actionformats '[%r](%b%c%u)' '%m' '<!%a>'
+  zstyle ':vcs_info:git:*' formats '%{${reset_color}%}(%F{green}%c%u%b%{${reset_color}%})' '%m'
+  zstyle ':vcs_info:git:*' actionformats '%{${reset_color}%}(%c%u%b%{${reset_color}%})' '%m' '<!%a>'
   zstyle ':vcs_info:git:*' check-for-changes true
-  zstyle ':vcs_info:git:*' stagedstr "^"
-  zstyle ':vcs_info:git:*' unstagedstr "*"
+  zstyle ':vcs_info:git:*' stagedstr "%F{yellow}"
+  zstyle ':vcs_info:git:*' unstagedstr "%F{magenta}"
 fi
 
 function _update_vcs_info_msg() {
@@ -168,7 +167,7 @@ setopt PROMPT_SUBST
 
 colors
 #PROMPT="%m:%n%%%{${reset_color}%} "
-PROMPT="%{${fg[grew]}%}☁  %{${reset_color}%}"
+PROMPT="%{${fg[yellow]}%}⚡️  %{${reset_color}%}"
 PROMPT2="%{${fg[yellow]}%}%_%%%{${reset_color}%} "
 SPROMPT="%{${fg[yellow]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
