@@ -284,13 +284,22 @@ alias lf="ls -F"
 alias ll="ls -l"
 alias lla="ls -la"
 alias lal="ls -la"
-
 alias du="du -h"
 alias df="df -h"
-
 alias su="su -l"
-
 alias g='git'
+
+## Xcodeのプロジェクトを簡単に開けるようにする
+function open-xcode-project() {
+    if [ -e *.xcworkspace ]; then
+        find . -name *.xcworkspace | xargs open
+    else
+        if [ -e *.xcodeproj ]; then
+            find . -name *.xcodeproj | xargs open
+        fi
+    fi
+}
+alias xcode='open-xcode-project'
 
 ## terminal configuration
 #
