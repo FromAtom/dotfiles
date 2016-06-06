@@ -15,6 +15,7 @@
 (el-get-bundle color-theme-solarized)
 
 (el-get-bundle auto-complete)
+(el-get-bundle auto-complete-swift)
 (el-get-bundle anything)
 (el-get-bundle smartchr)
 (el-get-bundle git-gutter-fringe)
@@ -25,6 +26,7 @@
 (el-get-bundle web-mode)
 (el-get-bundle js2-mode)
 (el-get-bundle coffee-mode)
+(el-get-bundle yaml-mode)
 
 (el-get-bundle init-loader)
 (init-loader-load "~/.emacs.d/inits")
