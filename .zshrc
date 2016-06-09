@@ -290,16 +290,10 @@ alias su="su -l"
 alias g='git'
 
 ## Xcodeのプロジェクトを簡単に開けるようにする
-function open-xcode-project() {
-    if [ -e *.xcworkspace ]; then
-        find . -name *.xcworkspace | xargs open
-    else
-        if [ -e *.xcodeproj ]; then
-            find . -name *.xcodeproj | xargs open
-        fi
-    fi
+open-xcode-project() {
+    open *.xcworkspace || open *.xcodeproj || echo 'fatal: Not a Xcode repository'
 }
-alias xcode='open-xcode-project'
+alias xc='open-xcode-project'
 
 ## terminal configuration
 #
