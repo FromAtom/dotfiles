@@ -74,6 +74,7 @@ bindkey "^g^a" peco-select-git-add
 bindkey "^g^b" peco-git-recent-branches
 bindkey "^g^b^a" peco-git-recent-all-branches
 bindkey "^h" peco-select-ssh
+bindkey "^x^o" peco-cdr-and-open-xcode
 
 ## setting for cdr
 #
@@ -290,7 +291,7 @@ alias su="su -l"
 alias g='git'
 
 ## Xcodeのプロジェクトを簡単に開けるようにする
-open-xcode-project() {
+function open-xcode-project() {
     open *.xcworkspace || open *.xcodeproj || echo 'fatal: Not a Xcode repository'
 }
 alias xc='open-xcode-project'
