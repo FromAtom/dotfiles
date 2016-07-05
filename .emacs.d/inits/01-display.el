@@ -60,21 +60,25 @@
 (transient-mark-mode t)
 
 ;; タブと全角スペースを表示する
+
 (defface my-face-b-1 '((t (:background "gray15"))) nil)
 (defface my-face-b-2 '((t (:background "gray26"))) nil)
 (defface my-face-u-1 '((t (:foreground "SteelBlue" :underline t))) nil)
 (defvar my-face-b-1 'my-face-b-1)
 (defvar my-face-b-2 'my-face-b-2)
 (defvar my-face-u-1 'my-face-u-1)
-(defadvice font-lock-mode (before my-font-lock-mode ())
-(font-lock-add-keywords
-major-mode
-'(("\t" 0 my-face-b-2 append)
-("　" 0 my-face-b-1 append)
-("[ \t]+$" 0 my-face-u-1 append)
-)))
-(ad-enable-advice 'font-lock-mode 'before 'my-font-lock-mode)
-(ad-activate 'font-lock-mode)
+(defun font-lock-user-keywords (mode &optional keywords)
+ major-mode
+ '(("\t" 0 my-face-b-2 append)
+   ("　" 0 my-face-b-1 append)
+   ("[ \t]+$" 0 my-face-u-1 append)
+   )
+  (unless mode
+    (error "mode should be non-nil "))
+  (font-lock-remove-keywords mode (get mode 'font-lock-user-keywords))
+  (font-lock-add-keywords mode keywords)
+  (put mode 'font-lock-user-keywords keywords))
+
 
 ;; スプラッシュ画面を出さない
 (setq inhibit-startup-message t)
