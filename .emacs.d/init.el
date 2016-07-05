@@ -25,6 +25,7 @@
 (el-get-bundle web-mode)
 (el-get-bundle js2-mode)
 (el-get-bundle coffee-mode)
+(el-get-bundle slim-mode)
 
 (el-get-bundle init-loader)
 (init-loader-load "~/.emacs.d/inits")
