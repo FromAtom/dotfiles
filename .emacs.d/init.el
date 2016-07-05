@@ -15,7 +15,6 @@
 (el-get-bundle color-theme-solarized)
 
 (el-get-bundle auto-complete)
-(el-get-bundle auto-complete-swift)
 (el-get-bundle anything)
 (el-get-bundle smartchr)
 (el-get-bundle git-gutter-fringe)
