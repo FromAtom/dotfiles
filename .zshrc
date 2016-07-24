@@ -94,7 +94,7 @@ case ${UID} in
         ;;
 esac
 
-### お試し
+###ブランチ名を状態によって色変え
 #autoload vcs_info
 autoload -Uz is-at-least
 autoload -Uz vcs_info
@@ -126,36 +126,6 @@ function _update_vcs_info_msg() {
 }
 add-zsh-hook precmd _update_vcs_info_msg
 
-
-# ###ブランチ名を状態によって色変え
-# autoload -Uz VCS_INFO_get_data_git; VCS_INFO_get_data_git 2> /dev/null
-
-# function rprompt-git-current-branch {
-#     local name st color gitdir action
-#     if [[ "$PWD" =~ '/\.git(/.*)?$' ]]; then
-#         return
-#     fi
-#     name=$(basename "`git symbolic-ref HEAD 2> /dev/null`")
-#     if [[ -z $name ]]; then
-#         return
-#     fi
-
-#     gitdir=`git rev-parse --git-dir 2> /dev/null`
-#     action=`VCS_INFO_git_getaction "$gitdir"` && action="($action)"
-
-#     st=`git status 2> /dev/null`
-#     if [[ -n `echo "$st" | grep "^nothing to"` ]]; then
-#         color=%F{green}
-#     elif [[ -n `echo "$st" | grep "^nothing added"` ]]; then
-#         color=%F{yellow}
-#     elif [[ -n `echo "$st" | grep "^# Untracked"` ]]; then
-#         color=%B%F{cyan}
-#     else
-#         color=%F{red}
-#     fi
-
-#     echo "(%{$color%}$name%{$reset_color%})"
-# }
 
 setopt PROMPT_SUBST
 
@@ -288,6 +258,7 @@ alias du="du -h"
 alias df="df -h"
 alias su="su -l"
 alias g='git'
+alias be='bundle exec'
 
 ## Xcodeのプロジェクトを簡単に開けるようにする
 open-xcode-project() {
