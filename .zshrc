@@ -36,6 +36,7 @@ PATH=${HOME}/.cabal/bin:$PATH
 if [ -f ~/projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source ~/projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 
 ##For zsh-completions
 autoload -U compinit
