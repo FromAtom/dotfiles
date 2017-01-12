@@ -35,7 +35,8 @@
 (el-get-bundle yaml-mode)
 
 ;; company-mode
-(el-get-bundle company-mode/company-mode)
+(el-get-bundle dash)
+(el-get-bundle company-mode)
 (el-get-bundle nathankot/company-sourcekit)
 
 ;; あれこれロードする
