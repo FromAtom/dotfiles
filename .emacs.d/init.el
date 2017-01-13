@@ -37,6 +37,9 @@
 ;; company-mode
 (el-get-bundle dash)
 (el-get-bundle company-mode)
+
+;; campany-mode for Swift
+(el-get-bundle yasnippet)
 (el-get-bundle nathankot/company-sourcekit)
 
 ;; あれこれロードする

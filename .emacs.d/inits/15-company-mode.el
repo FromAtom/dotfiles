@@ -1,23 +1,35 @@
 ;; company-modeの初期設定
 
-(global-company-mode +1)
+(global-company-mode)
 
 ;; 色周り
 (set-face-attribute 'company-tooltip nil
-                    :foreground "black" :background "lightgrey")
-(set-face-attribute 'company-tooltip-common nil
-                    :foreground "black" :background "lightgrey")
-(set-face-attribute 'company-tooltip-common-selection nil
-                    :foreground "white" :background "steelblue")
-(set-face-attribute 'company-tooltip-selection nil
-                    :foreground "black" :background "steelblue")
+                    :foreground "#002B36"
+                    :background "#93A1A1"
+                    )
 (set-face-attribute 'company-preview-common nil
-                    :background nil :foreground "lightgrey" :underline t)
-(set-face-attribute 'company-scrollbar-fg nil
-                    :background "orange")
-(set-face-attribute 'company-scrollbar-bg nil
-                    :background "gray40")
+                    :foreground "orange"
+                    :background "white"
+                    :underline t)
+(set-face-attribute 'company-tooltip-selection nil
+                    :background "#FDF6E3"
+                    :foreground "#002B36")
+(set-face-attribute 'company-tooltip-common nil
+                    :foreground "#002B36"
+                    :background "#93A1A1"
+                    :underline t)
+(set-face-attribute 'company-tooltip-common-selection nil
+                    :foreground "white"
+                    :background "steelblue"
+                    :underline t)
+(set-face-attribute 'company-tooltip-annotation nil
+                    :foreground "#D33682"
+                    :background "#93A1A1")
+(set-face-attribute 'company-tooltip-annotation-selection nil
+                    :foreground "#D33682" ; "#FDF6E3"
+                    :background "#FDF6E3")
 
+(setq company-tooltip-align-annotations t)
 
 ;; 挙動周り
 (global-set-key (kbd "C-M-i") 'company-complete)
@@ -36,3 +48,6 @@
 
 ;; 各種メジャーモードでも C-M-iで company-modeの補完を使う
 (define-key emacs-lisp-mode-map (kbd "C-M-i") 'company-complete)
+
+(setq company-idle-delay 0.1)
+(setq company-minimum-prefix-length 1)
