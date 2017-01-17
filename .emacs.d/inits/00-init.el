@@ -66,11 +66,6 @@
 ;; ログの記録行数を増やす
 (setq message-log-max 10000)
 
-;; サーバ起動
-(require 'server)
-(unless (server-running-p)
-  (server-start))
-
 ;; クライアントを終了するとき終了するかどうかを聞かない
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
 
