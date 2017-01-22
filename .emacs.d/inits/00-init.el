@@ -51,8 +51,10 @@
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 
 ;; スクロールを一行ずつにする
-(setq mac-mouse-wheel-smooth-scroll t)
-(setq scroll-step 1)
+(setq mouse-wheel-scroll-amount '(1 ((shift) . 1)))
+(setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
+(setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
+(setq scroll-step 1) ;; keyboard scroll one line at a time
 
 ;; 行の先頭でC-kを一回押すだけで行全体を消去する
 (setq kill-whole-line t)
@@ -65,11 +67,6 @@
 
 ;; ログの記録行数を増やす
 (setq message-log-max 10000)
-
-;; サーバ起動
-(require 'server)
-(unless (server-running-p)
-  (server-start))
 
 ;; クライアントを終了するとき終了するかどうかを聞かない
 (remove-hook 'kill-buffer-query-functions 'server-kill-buffer-query-function)
