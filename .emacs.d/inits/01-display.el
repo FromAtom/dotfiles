@@ -1,15 +1,26 @@
-;; フレームの設定
-(setq default-frame-alist
-      (append
-       (list
-        ;; サイズ・位置
-        '(width . 136) ; 横幅(文字数)
-        '(height . 62) ; 高さ(行数)
-        '(top . 20) ; フレーム左上角 y 座標
-        '(left . 0) ; フレーム左上角 x 座標
-        )
-       default-frame-alist)
-      )
+;; フレームサイズの設定
+
+;; Emacs終了時にフレームサイズを保存する
+(defun frame-size-save ()
+  (set-buffer
+   (find-file-noselect (expand-file-name "~/.emacs.d/.framesize")))
+  (erase-buffer)
+  (insert (concat
+           "(set-frame-width (selected-frame) "
+           (int-to-string (frame-width))
+           ") (set-frame-height (selected-frame) "
+           (int-to-string (frame-height))
+           ")"))
+  (save-buffer)
+  (kill-buffer))
+(add-hook 'kill-emacs-hook 'frame-size-save)
+
+;; Emacs起動時に前回のフレームサイズを復元する
+(defun frame-size-resume ()
+  (let* ((file "~/.emacs.d/.framesize"))
+    (if (file-exists-p file)
+        (load-file file))))
+(add-hook 'window-setup-hook 'frame-size-resume)
 
 ;; テーマを使う
 (when (require 'color-theme)
@@ -41,7 +52,7 @@
 ;; 行番号を表示
 (require 'linum)
 (global-linum-mode t)
-(set-face-font 'mode-line "Migu 1M-12")
+(set-face-font 'mode-line "Ricty-12")
 (setq linum-format "%3d")
 
 ;; 画面上に出るメニュー(y文字)を消す
@@ -60,7 +71,6 @@
 (transient-mark-mode t)
 
 ;; タブと全角スペースを表示する
-
 (defface my-face-b-1 '((t (:background "gray15"))) nil)
 (defface my-face-b-2 '((t (:background "gray26"))) nil)
 (defface my-face-u-1 '((t (:foreground "SteelBlue" :underline t))) nil)
@@ -78,7 +88,6 @@
   (font-lock-remove-keywords mode (get mode 'font-lock-user-keywords))
   (font-lock-add-keywords mode keywords)
   (put mode 'font-lock-user-keywords keywords))
-
 
 ;; スプラッシュ画面を出さない
 (setq inhibit-startup-message t)
