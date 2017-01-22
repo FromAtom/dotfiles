@@ -9,5 +9,3 @@
  (font-spec :family "Ricty"))
 
 ;; 違うフォントを使うなら横幅調整が必要
-'(setq face-font-rescale-alist
-      '((".*Migu 1M.*" . 1.2)))
