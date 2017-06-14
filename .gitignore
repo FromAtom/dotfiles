@@ -15,7 +15,6 @@ eshell/lastdir
 .#*
 .DS_Store
 *.sw[po]
-tags
 *.snapshot
 el-get
 elpa
