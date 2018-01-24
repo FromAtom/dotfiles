@@ -45,9 +45,11 @@ fi
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 
 ##For zsh-completions
+if [ -e /usr/local/share/zsh-completions ]; then
+    fpath=(/usr/local/share/zsh-completions $fpath)
+fi
 autoload -U compinit
-compinit
-fpath=(/path/to/homebrew/share/zsh-completions $fpath)
+compinit -u
 
 ##For less
 alias lessc=”~/node_modules/less/bin/lessc”
