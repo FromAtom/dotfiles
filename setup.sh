@@ -1,8 +1,13 @@
 #!/bin/bash
 
-DOT_FILES=( .zsh .zshrc .emacs.d .gitconfig .gitignore )
+set -u
 
+THIS_DIR=$(cd $(dirname $0); pwd)
+cd $THIS_DIR
+
+# dotfilesのシンボリックリンク作成
+DOT_FILES=( .zsh .zshrc .emacs.d .gitconfig .gitignore )
 for file in ${DOT_FILES[@]}
 do
-    ln -sf $HOME/projects/dotfiles/$file $HOME/$file
+  ln -s ${THIS_DIR}/$file ${HOME}
 done
