@@ -35,6 +35,10 @@ export PATH=/usr/local/share/npm/bin:$PATH
 #     export PERL5LIB=$PERLBREW_ROOT/lib/perl5:$PERL5LIB
 # fi
 
+##For less code-highlight
+export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh  %s'
+export LESS='-R'
+
 #For cabal
 PATH=${HOME}/.cabal/bin:$PATH
 
