@@ -23,6 +23,9 @@ alias gignore='gibo -l | sed "/=/d" | tr "\t", "\n" | sed "/^$/d" | sort | peco 
 ##For npm
 export PATH=/usr/local/share/npm/bin:$PATH
 
+##For adb
+export PATH=/Users/fromatom/Library/Android/sdk/platform-tools:$PATH
+
 ##For perlbrew
 #export PERL5LIB=$HOME/perl5/lib/perl5
 #export PERLBREW_ROOT=$HOME/.perlbrew
