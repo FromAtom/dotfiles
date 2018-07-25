@@ -33,6 +33,7 @@
 (el-get-bundle coffee-mode)
 (el-get-bundle slim-mode)
 (el-get-bundle yaml-mode)
+(el-get-bundle markdown-mode)
 
 ;; company-mode
 (el-get-bundle dash)
@@ -51,6 +52,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2)
+ '(inhibit-startup-screen t)
  '(package-selected-packages (quote (nil color-theme))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
