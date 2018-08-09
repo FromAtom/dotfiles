@@ -276,6 +276,7 @@ alias df="df -h"
 alias su="su -l"
 alias g='git'
 alias be='bundle exec'
+alias gpull='git pull origin $(git rev-parse --abbrev-ref HEAD)'
 
 ## Xcodeのプロジェクトを簡単に開けるようにする
 function open-xcode-project() {
