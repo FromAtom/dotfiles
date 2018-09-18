@@ -31,6 +31,7 @@ cask 'google-chrome'
 cask 'firefox'
 cask 'google-japanese-ime'
 cask 'slack'
+cask 'discord'
 
 # Mac App Store
 mas 'BetterSnapTool', id: 417375580
