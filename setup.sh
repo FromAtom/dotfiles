@@ -24,4 +24,7 @@ if [ "$(uname)" == 'Darwin' ]; then
     # Rictyフォントをコピー
     cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
     fc-cache -vf
+
+    # Link Emacs.app
+    ln -sfv /usr/local/opt/emacs/Emacs.app /Applications
 fi

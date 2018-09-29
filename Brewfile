@@ -25,6 +25,7 @@ brew 'ricty'
 
 # brew cask
 tap 'homebrew/cask'
+cask 'iterm2'
 cask 'visual-studio-code'
 cask 'atom'
 cask 'google-chrome'
