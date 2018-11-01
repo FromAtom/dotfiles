@@ -19,6 +19,7 @@ brew 'source-highlight'
 brew 'ffmpeg'
 brew 'gifsicle'
 brew 'emacs', args: ['with-cocoa', 'with-gnutls', 'with-modules']
+brew 'redis'
 
 # Font
 tap 'sanemat/font'
