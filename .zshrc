@@ -27,7 +27,8 @@ export PATH=/usr/local/share/npm/bin:$PATH
 export PATH=/Users/fromatom/Library/Android/sdk/platform-tools:$PATH
 
 ## for Go-lang
-export PATH=/usr/local/go/bin:$PATH
+export GOPATH="${HOME}/go"
+export PATH=$GOPATH/bin:$PATH
 
 ##For perlbrew
 #export PERL5LIB=$HOME/perl5/lib/perl5
