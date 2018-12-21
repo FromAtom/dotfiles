@@ -26,6 +26,9 @@ export PATH=/usr/local/share/npm/bin:$PATH
 ##For adb
 export PATH=/Users/fromatom/Library/Android/sdk/platform-tools:$PATH
 
+## for Go-lang
+export PATH=/usr/local/go/bin:$PATH
+
 ##For perlbrew
 #export PERL5LIB=$HOME/perl5/lib/perl5
 #export PERLBREW_ROOT=$HOME/.perlbrew
