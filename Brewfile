@@ -36,6 +36,7 @@ cask 'google-japanese-ime'
 cask 'slack'
 cask 'discord'
 cask 'contexts'
+cask 'provisionql'
 
 # Mac App Store
 mas 'BetterSnapTool', id: 417375580
