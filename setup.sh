@@ -20,4 +20,11 @@ if [ "$(uname)" == 'Darwin' ]; then
     fi
     brew tap Homebrew/bundle
     brew bundle
+
+    # Rictyフォントをコピー
+    cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
+    fc-cache -vf
+
+    # Link Emacs.app
+    ln -sfv /usr/local/opt/emacs/Emacs.app /Applications
 fi

@@ -1,14 +1,12 @@
-tap 'sanemat/font'
-
 brew 'carthage'
 brew 'swiftlint'
 brew 'peco'
 brew 'rbenv'
 brew 'ruby-build'
 brew 'imagemagick'
-brew 'ricty'
 brew 'heroku'
 brew 'git'
+brew 'hub'
 brew 'jq'
 brew 'tig'
 brew 'tree'
@@ -20,3 +18,25 @@ brew 'curl'
 brew 'source-highlight'
 brew 'ffmpeg'
 brew 'gifsicle'
+brew 'emacs', args: ['with-cocoa', 'with-gnutls', 'with-modules']
+brew 'redis'
+
+# Font
+tap 'sanemat/font'
+brew 'ricty'
+
+# brew cask
+tap 'homebrew/cask'
+cask 'iterm2'
+cask 'visual-studio-code'
+cask 'atom'
+cask 'google-chrome'
+cask 'firefox'
+cask 'google-japanese-ime'
+cask 'slack'
+cask 'discord'
+cask 'contexts'
+cask 'provisionql'
+
+# Mac App Store
+mas 'BetterSnapTool', id: 417375580

@@ -25,10 +25,13 @@ export PATH=/usr/local/share/npm/bin:$PATH
 
 ##For adb
 export PATH=/Users/fromatom/Library/Android/sdk/platform-tools:$PATH
-
 ## For MySQL v5.7
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export DYLD_LIBRARY_PATH="/usr/local/opt/mysql@5.7/:$DYLD_LIBRARY_PATH"
+
+## for Go-lang
+export GOPATH="${HOME}/go"
+export PATH=$GOPATH/bin:$PATH
 
 ##For perlbrew
 #export PERL5LIB=$HOME/perl5/lib/perl5

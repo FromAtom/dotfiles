@@ -39,7 +39,7 @@
 (show-paren-mode t)
 (setq show-paren-delay 0)
 (setq show-paren-style 'expression)
-(set-face-attribute 'show-paren-match-face nil
+'(set-face-attribute 'show-paren-match-face nil
                     :background nil :foreground nil
                     :underline t)
 
@@ -48,6 +48,9 @@
 
 ;; タイトルバーにフルパスを表示
 (setq frame-title-format "%f")
+
+;; ツールバーを非表示
+(tool-bar-mode 0)
 
 ;; 行番号を表示
 (require 'linum)
