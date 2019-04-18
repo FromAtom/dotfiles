@@ -17,10 +17,6 @@
     (goto-char (point-max))
     (eval-print-last-sexp)))
 
-;;見た目
-(el-get-bundle elpa:color-theme)
-(el-get-bundle color-theme-solarized)
-
 (el-get-bundle anything)
 (el-get-bundle smartchr)
 (el-get-bundle git-gutter-fringe)
@@ -43,6 +39,10 @@
 (el-get-bundle yasnippet)
 (el-get-bundle nathankot/company-sourcekit)
 
+;; カスタムテーマのパスを設定
+(add-to-list 'custom-theme-load-path "~/.emacs.d/themes")
+(setq custom-theme-directory "~/.emacs.d/themes")
+
 ;; あれこれロードする
 (el-get-bundle init-loader)
 (init-loader-load "~/.emacs.d/inits")
@@ -52,11 +52,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(coffee-tab-width 2)
- '(inhibit-startup-screen t)
- '(package-selected-packages (quote (nil color-theme))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+ '(inhibit-startup-screen t))

@@ -1,5 +1,9 @@
 ;; フレームサイズの設定
 
+;; カラーテーマを指定
+(customize-set-variable 'frame-background-mode 'dark)
+(load-theme 'solarized t)
+
 ;; Emacs終了時にフレームサイズを保存する
 (defun frame-size-save ()
   (set-buffer
@@ -21,13 +25,6 @@
     (if (file-exists-p file)
         (load-file file))))
 (add-hook 'window-setup-hook 'frame-size-resume)
-
-;; テーマを使う
-(when (require 'color-theme)
-  (color-theme-initialize)
-  ;; color-theme-solorized.el
-  (when (require 'color-theme-solarized)
-    (color-theme-solarized-dark)))
 
 ;; font-lock use-all
 (global-font-lock-mode t)
