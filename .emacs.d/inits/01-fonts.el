@@ -1,7 +1,7 @@
 ;; 英語Fontの設定
 (set-face-attribute 'default nil
                     :family "Ricty"
-                    :height 140)
+                    :height 180)
 
 ;; 日本語Fontの設定
 (set-fontset-font
