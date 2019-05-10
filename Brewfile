@@ -4,7 +4,6 @@ brew 'peco'
 brew 'rbenv'
 brew 'ruby-build'
 brew 'imagemagick'
-brew 'heroku'
 brew 'git'
 brew 'hub'
 brew 'jq'
@@ -20,6 +19,11 @@ brew 'ffmpeg'
 brew 'gifsicle'
 brew 'emacs', args: ['with-cocoa', 'with-gnutls', 'with-modules']
 brew 'redis'
+
+# Heroku CLI
+tap 'heroku/brew'
+brew 'heroku'
+
 
 # Font
 tap 'sanemat/font'
