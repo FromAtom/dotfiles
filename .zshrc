@@ -1,6 +1,11 @@
 ##-*- coding: utf-8-unix -*-
 #
 
+## import ENV
+if [ -f ~/.env.zsh ]; then
+  source ~/.env.zsh
+fi
+
 ##users generic .zshrc file for zsh(1)
 #
 export PATH=~/bin:/opt/local:$PATH
