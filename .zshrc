@@ -35,8 +35,10 @@ export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 export DYLD_LIBRARY_PATH="/usr/local/opt/mysql@5.7/:$DYLD_LIBRARY_PATH"
 
 ## for Go-lang
-export GOPATH="${HOME}/go"
-export PATH=$GOPATH/bin:$PATH
+if [ -x "`which go`" ]; then
+  export GOPATH=$HOME/.go
+  export PATH=$PATH:$GOPATH/bin
+fi
 
 ##For perlbrew
 #export PERL5LIB=$HOME/perl5/lib/perl5
