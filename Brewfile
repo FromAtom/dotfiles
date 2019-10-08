@@ -17,13 +17,11 @@ brew 'curl'
 brew 'source-highlight'
 brew 'ffmpeg'
 brew 'gifsicle'
-brew 'emacs', args: ['with-cocoa', 'with-gnutls', 'with-modules']
 brew 'redis'
 
 # Heroku CLI
 tap 'heroku/brew'
 brew 'heroku'
-
 
 # Font
 tap 'sanemat/font'
@@ -41,6 +39,7 @@ cask 'slack'
 cask 'discord'
 cask 'contexts'
 cask 'provisionql'
+cask 'emacs'
 
 # Mac App Store
 mas 'BetterSnapTool', id: 417375580
