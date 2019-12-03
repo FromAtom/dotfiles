@@ -1,3 +1,4 @@
+brew 'zplug'
 brew 'carthage'
 brew 'swiftlint'
 brew 'peco'
@@ -18,6 +19,7 @@ brew 'source-highlight'
 brew 'ffmpeg'
 brew 'gifsicle'
 brew 'redis'
+brew 'terminal-notifier'
 
 # Heroku CLI
 tap 'heroku/brew'

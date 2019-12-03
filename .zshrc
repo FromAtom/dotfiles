@@ -1,6 +1,23 @@
 ##-*- coding: utf-8-unix -*-
 #
 
+## zplu
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+zplug "zsh-users/zsh-syntax-highlighting"
+zplug "marzocchi/zsh-notify"
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load
+## zplug ^
+
 ## import ENV
 if [ -f ~/.env.zsh ]; then
   source ~/.env.zsh
@@ -49,6 +66,9 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 #source ~/.perlbrew/etc/bashrc
 #source ~/perl5/perlbrew/etc/bashrc
 
+##For zsh-highlighting
+export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
+
 ##For cpanminus
 # if which cpanm > /dev/null 2>&1 && [ -n $PERLBREW_ROOT ]; then
 #     export PERL_CPANM_OPT=--local-lib=$PERLBREW_ROOT
@@ -61,12 +81,6 @@ export LESS='-R'
 
 #For cabal
 PATH=${HOME}/.cabal/bin:$PATH
-
-##For zsh-highlighting
-if [ -f ~/projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-  source ~/projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 
 ##For zsh-completions
 if [ -e /usr/local/share/zsh-completions ]; then
