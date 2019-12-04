@@ -7,6 +7,7 @@ source $ZPLUG_HOME/init.zsh
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 zplug "marzocchi/zsh-notify"
+zplug "zsh-users/zsh-completions"
 
 if ! zplug check --verbose; then
     printf "Install? [y/N]: "
@@ -66,7 +67,7 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 #source ~/.perlbrew/etc/bashrc
 #source ~/perl5/perlbrew/etc/bashrc
 
-##For zsh-highlighting
+##For git diff-highlight
 export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 
 ##For cpanminus
@@ -81,13 +82,6 @@ export LESS='-R'
 
 #For cabal
 PATH=${HOME}/.cabal/bin:$PATH
-
-##For zsh-completions
-if [ -e /usr/local/share/zsh-completions ]; then
-    fpath=(/usr/local/share/zsh-completions $fpath)
-fi
-autoload -U compinit
-compinit -u
 
 ##For less
 alias lessc=”~/node_modules/less/bin/lessc”
