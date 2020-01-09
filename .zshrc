@@ -40,6 +40,9 @@ if [ -x "`which go`" ]; then
   export PATH=$PATH:$GOPATH/bin
 fi
 
+## for depot_tools
+export PATH=/usr/local/depot_tools:$PATH
+
 ##For perlbrew
 #export PERL5LIB=$HOME/perl5/lib/perl5
 #export PERLBREW_ROOT=$HOME/.perlbrew
