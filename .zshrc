@@ -1,6 +1,24 @@
 ##-*- coding: utf-8-unix -*-
 #
 
+## zplu
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
+
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+zplug "marzocchi/zsh-notify"
+zplug "zsh-users/zsh-completions"
+
+if ! zplug check --verbose; then
+    printf "Install? [y/N]: "
+    if read -q; then
+        echo; zplug install
+    fi
+fi
+
+zplug load
+## zplug ^
+
 ## import ENV
 if [ -f ~/.env.zsh ]; then
   source ~/.env.zsh
@@ -43,11 +61,17 @@ fi
 ## for depot_tools
 export PATH=/usr/local/depot_tools:$PATH
 
+## for nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
+
 ##For perlbrew
 #export PERL5LIB=$HOME/perl5/lib/perl5
 #export PERLBREW_ROOT=$HOME/.perlbrew
 #source ~/.perlbrew/etc/bashrc
 #source ~/perl5/perlbrew/etc/bashrc
+
+##For git diff-highlight
+export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
 
 ##For cpanminus
 # if which cpanm > /dev/null 2>&1 && [ -n $PERLBREW_ROOT ]; then
@@ -61,19 +85,6 @@ export LESS='-R'
 
 #For cabal
 PATH=${HOME}/.cabal/bin:$PATH
-
-##For zsh-highlighting
-if [ -f ~/projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-  source ~/projects/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
-export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
-
-##For zsh-completions
-if [ -e /usr/local/share/zsh-completions ]; then
-    fpath=(/usr/local/share/zsh-completions $fpath)
-fi
-autoload -U compinit
-compinit -u
 
 ##For less
 alias lessc=”~/node_modules/less/bin/lessc”

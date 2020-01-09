@@ -1,3 +1,4 @@
+brew 'zplug'
 brew 'carthage'
 brew 'swiftlint'
 brew 'peco'
@@ -11,19 +12,18 @@ brew 'tig'
 brew 'tree'
 brew 'the_silver_searcher'
 brew 'gibo'
-brew 'yarn'
+brew 'nodebrew'
 brew 'zsh-completions'
 brew 'curl'
 brew 'source-highlight'
 brew 'ffmpeg'
 brew 'gifsicle'
-brew 'emacs', args: ['with-cocoa', 'with-gnutls', 'with-modules']
 brew 'redis'
+brew 'terminal-notifier'
 
 # Heroku CLI
 tap 'heroku/brew'
 brew 'heroku'
-
 
 # Font
 tap 'sanemat/font'
@@ -41,6 +41,7 @@ cask 'slack'
 cask 'discord'
 cask 'contexts'
 cask 'provisionql'
+cask 'emacs'
 
 # Mac App Store
 mas 'BetterSnapTool', id: 417375580
