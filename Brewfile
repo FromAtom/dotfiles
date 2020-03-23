@@ -1,6 +1,4 @@
 brew 'zplug'
-brew 'carthage'
-brew 'swiftlint'
 brew 'peco'
 brew 'rbenv'
 brew 'ruby-build'
@@ -25,15 +23,10 @@ brew 'terminal-notifier'
 tap 'heroku/brew'
 brew 'heroku'
 
-# Font
-tap 'sanemat/font'
-brew 'ricty'
-
 # brew cask
 tap 'homebrew/cask'
 cask 'iterm2'
 cask 'visual-studio-code'
-cask 'atom'
 cask 'google-chrome'
 cask 'firefox'
 cask 'google-japanese-ime'
@@ -41,7 +34,10 @@ cask 'slack'
 cask 'discord'
 cask 'contexts'
 cask 'provisionql'
-cask 'emacs'
+
+# Font
+tap 'homebrew/cask-fonts'
+cask 'font-hackgen'
 
 # Mac App Store
 mas 'BetterSnapTool', id: 417375580
