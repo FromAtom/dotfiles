@@ -368,3 +368,8 @@ export PATH="/usr/local/heroku/bin:$PATH"
 
 [[ -d /usr/local/opt/nvm ]] && export NVM_DIR=/usr/local/opt/nvm
 [[ -f $NVM_DIR/nvm.sh ]] && source $NVM_DIR/nvm.sh
+
+# opam configuration
+if [ -x "`which opam`" ]; then
+  test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+fi
