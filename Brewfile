@@ -18,6 +18,7 @@ brew 'ffmpeg'
 brew 'gifsicle'
 brew 'redis'
 brew 'terminal-notifier'
+brew 'hg'
 
 # Heroku CLI
 tap 'heroku/brew'

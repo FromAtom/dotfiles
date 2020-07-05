@@ -30,6 +30,7 @@
 (el-get-bundle slim-mode)
 (el-get-bundle yaml-mode)
 (el-get-bundle markdown-mode)
+(el-get-bundle yatex)
 
 ;; company-mode
 (el-get-bundle dash)
