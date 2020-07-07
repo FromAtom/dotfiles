@@ -16,7 +16,7 @@
     ("acroread\\|pdf\\|Preview\\|TeXShop" . ".pdf")))
 
 ;; バッファ全体の句読点と読点をコンマとピリオドに変換
-(defun replace-commaperiod-buffer ()
+'(defun replace-commaperiod-buffer ()
   (interactive "r")
   (save-excursion
     (replace-string "、" "，" nil (point-min) (point-max))
