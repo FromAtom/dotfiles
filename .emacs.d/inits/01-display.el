@@ -52,7 +52,7 @@
 ;; 行番号を表示
 (require 'linum)
 (global-linum-mode t)
-(set-face-font 'mode-line "Ricty-12")
+(set-face-font 'mode-line "HackGen-12")
 (setq linum-format "%3d")
 
 ;; 画面上に出るメニュー(y文字)を消す
