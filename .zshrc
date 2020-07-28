@@ -308,10 +308,7 @@ alias be='bundle exec'
 alias gpull='git pull origin $(git rev-parse --abbrev-ref HEAD)'
 
 ## Xcodeのプロジェクトを簡単に開けるようにする
-function open-xcode-project() {
-    open *.xcworkspace || open *.xcodeproj || echo 'fatal: Not a Xcode repository'
-}
-alias xc='open-xcode-project'
+alias xc='xed .'
 
 ## terminal configuration
 #
