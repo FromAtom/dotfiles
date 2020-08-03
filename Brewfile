@@ -19,6 +19,7 @@ brew 'gifsicle'
 brew 'redis'
 brew 'terminal-notifier'
 brew 'hg'
+brew 'gh'
 
 # Heroku CLI
 tap 'heroku/brew'
