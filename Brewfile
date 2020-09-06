@@ -37,6 +37,7 @@ cask 'discord'
 cask 'contexts'
 cask 'provisionql'
 cask 'clipy'
+cask 'emacs'
 
 # Font
 tap 'homebrew/cask-fonts'

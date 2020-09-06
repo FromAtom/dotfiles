@@ -16,11 +16,8 @@ done
 if [ "$(uname)" == 'Darwin' ]; then
     # Homebrew
     if ! which brew > /dev/null; then
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
     fi
     brew tap Homebrew/bundle
     brew bundle
-
-    # Link Emacs.app
-    ln -sfv /usr/local/opt/emacs/Emacs.app /Applications
 fi
