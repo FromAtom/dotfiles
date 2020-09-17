@@ -3,8 +3,8 @@
 		email = fromatom@gmail.com
 [core]
     excludesfile = ~/.gitignore
-		excludesfile = /Users/bossme/.gitignore
-		excludesfile = /Users/Atom/.gitignore
+	excludesfile = /Users/bossme/.gitignore
+	excludesfile = /Users/Atom/.gitignore
 [push]
     default = current
 [pull]
@@ -12,7 +12,7 @@
 [alias]
     graph = log --graph --date-order -C -M --pretty=format:\"<%h> %ad [%an] %Cgreen%d%Creset %s\" --all --date=short
     cl = clone --recursive
-		st = status
+	st = status
     df = diff
     dfc = diff --cached
     co = checkout
@@ -27,6 +27,8 @@
     g = grep
     fe = fetch
     cp = cherry-pick
+    sw = switch
+    rs = restore --staged
 [pager]
     log = diff-highlight | less
 	show = diff-highlight | less
