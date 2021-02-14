@@ -376,3 +376,9 @@ export PATH="/usr/local/heroku/bin:$PATH"
 if [ -x "`which opam`" ]; then
   test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 fi
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/fromatom/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/fromatom/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/fromatom/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/fromatom/google-cloud-sdk/completion.zsh.inc'; fi
