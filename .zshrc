@@ -2,7 +2,7 @@
 #
 
 ## zplu
-export ZPLUG_HOME=/usr/local/opt/zplug
+export ZPLUG_HOME=/opt/homebrew/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
@@ -35,6 +35,7 @@ export PATH=/Applications/Ghostscript.app:/Applications/Ghostscript.app/bin:$PAT
 ##For homebrew PATH
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
+export PATH=/opt/homebrew/bin:$PATH
 
 ##For rbenv PATH
 export PATH=$HOME/.rbenv/bin:$PATH

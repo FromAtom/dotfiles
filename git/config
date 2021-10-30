@@ -1,10 +1,7 @@
 [user]
-    name = Atom
+    name = FromAtom
     email = fromatom@gmail.com
 [core]
-    excludesfile = ~/.gitignore
-    excludesfile = /Users/bossme/.gitignore
-    excludesfile = /Users/Atom/.gitignore
 [push]
     default = current
 [pull]
