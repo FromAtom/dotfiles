@@ -38,7 +38,6 @@ cask 'provisionql'
 cask 'clipy'
 cask 'emacs'
 cask 'karabiner-elements'
-cask 'franz'
 cask 'vivaldi'
 cask '1password'
 
