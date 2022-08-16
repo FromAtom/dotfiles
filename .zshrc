@@ -77,7 +77,7 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 #source ~/perl5/perlbrew/etc/bashrc
 
 ##For git diff-highlight
-export PATH=$PATH:/usr/local/share/git-core/contrib/diff-highlight
+export PATH=$PATH:/opt/homebrew/share/git-core/contrib/diff-highlight
 
 ##For cpanminus
 # if which cpanm > /dev/null 2>&1 && [ -n $PERLBREW_ROOT ]; then
