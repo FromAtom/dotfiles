@@ -40,6 +40,7 @@ cask 'emacs'
 cask 'karabiner-elements'
 cask 'vivaldi'
 cask '1password'
+cask 'xcodes'
 
 # Font
 tap 'homebrew/cask-fonts'
