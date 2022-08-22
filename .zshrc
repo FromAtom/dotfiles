@@ -126,6 +126,7 @@ bindkey "^g^b^a" peco-git-recent-all-branches
 bindkey "^h" peco-select-ssh
 bindkey "^x^o" peco-cdr-and-open-xcode
 bindkey "^g^p" peco-checkout-pull-request
+bindkey "^g^g" ghq-select-repository
 
 ## setting for cdr
 #
