@@ -21,6 +21,7 @@ brew 'hg'
 brew 'gh'
 brew 'ghq'
 brew 'pyenv'
+brew 'eza'
 
 # Heroku CLI
 tap 'heroku/brew'

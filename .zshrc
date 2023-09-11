@@ -281,8 +281,11 @@ alias where="command -v"
 alias j="jobs -l"
 
 case "${OSTYPE}" in
-    freebsd*|darwin*)
+    freebsd*)
     alias ls="ls -G -w"
+    ;;
+    darwin*)
+    alias ls="eza"
     ;;
     linux*)
     alias ls="ls --color"
