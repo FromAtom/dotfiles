@@ -23,16 +23,11 @@ brew 'ghq'
 brew 'pyenv'
 brew 'eza'
 
-# Heroku CLI
-tap 'heroku/brew'
-brew 'heroku'
-
-# brew cask
-tap 'homebrew/cask'
+# GUI Apps
+cask 'MonitorControl'
 cask 'iterm2'
 cask 'visual-studio-code'
 cask 'google-chrome'
-cask 'firefox'
 cask 'slack'
 cask 'discord'
 cask 'contexts'
@@ -43,9 +38,10 @@ cask 'karabiner-elements'
 cask 'vivaldi'
 cask 'xcodes'
 
-# Font
+# Fonts
 tap 'homebrew/cask-fonts'
 cask 'font-hackgen'
+cask 'font-hackgen-nerd'
 
 # Mac App Store
 mas 'BetterSnapTool', id: 417375580
