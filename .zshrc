@@ -387,3 +387,11 @@ if [ -f '/Users/fromatom/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/fromat
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/fromatom/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/fromatom/google-cloud-sdk/completion.zsh.inc'; fi
+
+# pnpm
+export PNPM_HOME="/Users/fromatom/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
