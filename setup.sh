@@ -24,6 +24,12 @@ if [ -r ${THIS_DIR}/git/ignore ]; then
   ln -snf ${THIS_DIR}/git/ignore ~/.config/git/ignore
 fi
 
+# ~/.config/wezterm/wezterm.lua
+if [ -r ${THIS_DIR}/wezterm/wezterm.lua ]; then
+  [ ! -d ~/.config/wezterm ] && mkdir -pv ~/.config/wezterm
+  ln -snf ${THIS_DIR}/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
+fi
+
 # macOS向けの処理
 if [ "$(uname)" == 'Darwin' ]; then
     # Homebrew
