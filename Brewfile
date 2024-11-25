@@ -25,7 +25,6 @@ brew 'eza'
 
 # GUI Apps
 cask 'MonitorControl'
-cask 'iterm2'
 cask 'visual-studio-code'
 cask 'google-chrome'
 cask 'slack'
@@ -37,11 +36,8 @@ cask 'emacs'
 cask 'karabiner-elements'
 cask 'vivaldi'
 cask 'xcodes'
+cask 'wezterm'
 
 # Fonts
-tap 'homebrew/cask-fonts'
 cask 'font-hackgen'
 cask 'font-hackgen-nerd'
-
-# Mac App Store
-mas 'BetterSnapTool', id: 417375580
