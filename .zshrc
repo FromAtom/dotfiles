@@ -1,7 +1,7 @@
 ##-*- coding: utf-8-unix -*-
 #
 
-## zplu
+## zplug
 export ZPLUG_HOME=/opt/homebrew/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
@@ -55,9 +55,6 @@ export PATH=/usr/local/share/npm/bin:$PATH
 
 ##For adb
 export PATH=/Users/fromatom/Library/Android/sdk/platform-tools:$PATH
-## For MySQL v5.7
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-export DYLD_LIBRARY_PATH="/usr/local/opt/mysql@5.7/:$DYLD_LIBRARY_PATH"
 
 ## for Go-lang
 if [ -x "`which go`" ]; then
@@ -65,48 +62,15 @@ if [ -x "`which go`" ]; then
   export PATH=$PATH:$GOPATH/bin
 fi
 
-## for depot_tools
-export PATH=/usr/local/depot_tools:$PATH
-
 ## for nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
-
-##For perlbrew
-#export PERL5LIB=$HOME/perl5/lib/perl5
-#export PERLBREW_ROOT=$HOME/.perlbrew
-#source ~/.perlbrew/etc/bashrc
-#source ~/perl5/perlbrew/etc/bashrc
 
 ##For git diff-highlight
 export PATH=$PATH:/opt/homebrew/share/git-core/contrib/diff-highlight
 
-##For cpanminus
-# if which cpanm > /dev/null 2>&1 && [ -n $PERLBREW_ROOT ]; then
-#     export PERL_CPANM_OPT=--local-lib=$PERLBREW_ROOT
-#     export PERL5LIB=$PERLBREW_ROOT/lib/perl5:$PERL5LIB
-# fi
-
 ##For less code-highlight
-export LESSOPEN='| /usr/local/bin/src-hilite-lesspipe.sh  %s'
 export LESS='-R'
-
-#For cabal
-PATH=${HOME}/.cabal/bin:$PATH
-
-##For less
-alias lessc=”~/node_modules/less/bin/lessc”
-
-#alias lynx="/Applications/Lynxlet.app/Contents/Resources/lynx/bin/lynx"
-
-## use alc with w3m
-#
-function alc() {
-    if [ $# != 0 ]; then
-        lynx -dump -nonumbers "http://eow.alc.co.jp/$*/UTF-8/?ref=sa" | less +38
-    else
-        lynx -dump -nonumbers "http://www.alc.co.jp/"
-    fi
-}
+export LESSOPEN='| /opt/homebrew/bin/src-hilite-lesspipe.sh  %s'
 
 ## cd git repo top
 #
