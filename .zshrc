@@ -36,6 +36,7 @@ export PATH=/Applications/Ghostscript.app:/Applications/Ghostscript.app/bin:$PAT
 export PATH=/usr/local/bin:$PATH
 export PATH=/usr/local/sbin:$PATH
 export PATH=/opt/homebrew/bin:$PATH
+export PATH=/opt/homebrew/sbin:$PATH
 
 ##For rbenv PATH
 export PATH=$HOME/.rbenv/bin:$PATH
