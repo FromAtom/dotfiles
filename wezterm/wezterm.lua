@@ -1,6 +1,8 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
+config.initial_rows = 40
+config.initial_cols = 120
 config.color_scheme = "Dracula+"
 config.font_size = 18.0
 config.use_ime = true
