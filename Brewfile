@@ -41,3 +41,4 @@ cask 'wezterm'
 # Fonts
 cask 'font-hackgen'
 cask 'font-hackgen-nerd'
+cask 'font-hack-nerd-font'
