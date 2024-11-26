@@ -112,57 +112,10 @@ case ${UID} in
         ;;
 esac
 
-###ブランチ名を状態によって色変え
-#autoload vcs_info
-autoload -Uz is-at-least
-autoload -Uz vcs_info
-autoload -Uz colors; colors
-
-zstyle ':vcs_info:*' max-exports 3
-zstyle ':vcs_info:*' enable git
-if is-at-least 4.3.10; then
-  zstyle ':vcs_info:git:*' formats '%{${reset_color}%}(%F{green}%c%u%b%{${reset_color}%})' '%m'
-  zstyle ':vcs_info:git:*' actionformats '%{${reset_color}%}(%c%u%b%{${reset_color}%})' '%m' '<!%a>'
-  zstyle ':vcs_info:git:*' check-for-changes true
-  zstyle ':vcs_info:git:*' stagedstr "%F{yellow}"
-  zstyle ':vcs_info:git:*' unstagedstr "%F{magenta}"
-fi
-
-function _update_vcs_info_msg() {
-  local -a messages
-  local prompt
-  LANG=C vcs_info
-  if [[ -z ${vcs_info_msg_0_} ]]; then
-    prompt=""
-  else
-    [[ -n "$vcs_info_msg_0_" ]] && messages+=("%F{green}${vcs_info_msg_0_}%f")
-    [[ -n "$vcs_info_msg_1_" ]] && messages+=("%F{yellow}${vcs_info_msg_1_}%f")
-    [[ -n "$vcs_info_msg_2_" ]] && messages+=("%F{red}${vcs_info_msg_2_}%f")
-    prompt="${(j: :)messages}"
-  fi
-  RPROMPT="$prompt %{${fg[blue]}%}[`pwd | sed "s:$HOME:~:"`]%{${reset_color}%}"
-}
-add-zsh-hook precmd _update_vcs_info_msg
-
-
-setopt PROMPT_SUBST
-
-
 ## Default shell configuration
 #
 # set prompt
 #
-
-colors
-#PROMPT="%m:%n%%%{${reset_color}%} "
-PROMPT="%{${fg[green]}%}❯%{${fg[yellow]}%}❯%{${fg[red]}%}❯ %{${reset_color}%}"
-PROMPT2="%{${fg[yellow]}%}%_%%%{${reset_color}%} "
-SPROMPT="%{${fg[yellow]}%}%r is correct? [n,y,a,e]:%{${reset_color}%} "
-[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] &&
-PROMPT="%{${fg[cyan]}%}$(echo ${HOST%%.*} | tr '[a-z]' '[A-Z]') ${PROMPT}"
-
-#RPROMPT='`rprompt-git-current-branch` [%~]'
-RPROMPT='`rprompt-git-current-branch` %{${fg[cyan]}%}[%~]%{${reset_color}%}'
 
 # auto change directory
 #
@@ -187,9 +140,6 @@ setopt noautoremoveslash
 # no beep sound when complete list displayed
 #
 setopt nolistbeep
-
-
-
 
 ## Keybind configuration
 #
@@ -229,7 +179,6 @@ setopt share_history        # share command history data
 #
 autoload zed
 
-
 ## Prediction configuration
 #
 #autoload predict-on
@@ -257,18 +206,6 @@ case "${OSTYPE}" in
     ;;
 esac
 
-case "${OSTYPE}" in
-    cygwin*)
-        alias open='cygstart'
-        alias e='/usr/local/bin/emacsclient -n'
-#        alias emacs='/cygdrive/c/cygwin/app/emacs24.2/bin/emacs.exe -rv'
-        alias emacs='/usr/local/bin/emacsclient -n'
-        ;;
-    darwin*)
-        alias e='/usr/local/bin/emacsclient -n'
-        alias emacs='/Applications/Emacs.app/Contents/MacOS/emacs'
-esac
-
 alias ks="ls"
 alias la="ls -a"
 alias lf="ls -F"
@@ -285,67 +222,9 @@ alias gpull='git pull origin $(git rev-parse --abbrev-ref HEAD)'
 ## Xcodeのプロジェクトを簡単に開けるようにする
 alias xc='xed .'
 
-## terminal configuration
-#
-case "${TERM}" in
-    screen)
-    TERM=xterm
-    ;;
-esac
-
-case "${TERM}" in
-    xterm|xterm-color)
-    export LSCOLORS=exfxcxdxbxegedabagacad
-    export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-    zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
-    ;;
-    kterm-color)
-    stty erase '^H'
-    export LSCOLORS=exfxcxdxbxegedabagacad
-    export LS_COLORS='di=34:ln=35:so=32:pi=33:ex=31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-    zstyle ':completion:*' list-colors 'di=34' 'ln=35' 'so=32' 'ex=31' 'bd=46;34' 'cd=43;34'
-    ;;
-    kterm)
-    stty erase '^H'
-    ;;
-    cons25)
-    unset LANG
-    export LSCOLORS=ExFxCxdxBxegedabagacad
-    export LS_COLORS='di=01;34:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-    zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
-    ;;
-    jfbterm-color)
-    export LSCOLORS=gxFxCxdxBxegedabagacad
-    export LS_COLORS='di=01;36:ln=01;35:so=01;32:ex=01;31:bd=46;34:cd=43;34:su=41;30:sg=46;30:tw=42;30:ow=43;30'
-    zstyle ':completion:*' list-colors 'di=;36;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
-    ;;
-esac
-
-# set terminal title including current directory
-#
-case "${TERM}" in
-    xterm|xterm-color|kterm|kterm-color)
-    precmd() {
-        echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
-    }
-    ;;
-esac
-
-
 ## load user .zshrc configuration file
 #
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
-[[ -d /usr/local/opt/nvm ]] && export NVM_DIR=/usr/local/opt/nvm
-[[ -f $NVM_DIR/nvm.sh ]] && source $NVM_DIR/nvm.sh
-
-# opam configuration
-if [ -x "`which opam`" ]; then
-  test -r $HOME/.opam/opam-init/init.zsh && . $HOME/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
-fi
 
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/fromatom/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/fromatom/google-cloud-sdk/path.zsh.inc'; fi
@@ -353,10 +232,5 @@ if [ -f '/Users/fromatom/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/fromat
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/fromatom/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/fromatom/google-cloud-sdk/completion.zsh.inc'; fi
 
-# pnpm
-export PNPM_HOME="/Users/fromatom/Library/pnpm"
-case ":$PATH:" in
-  *":$PNPM_HOME:"*) ;;
-  *) export PATH="$PNPM_HOME:$PATH" ;;
-esac
-# pnpm end
+## starship
+eval "$(starship init zsh)"

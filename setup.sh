@@ -30,6 +30,11 @@ if [ -r ${THIS_DIR}/wezterm/wezterm.lua ]; then
   ln -snf ${THIS_DIR}/wezterm/wezterm.lua ~/.config/wezterm/wezterm.lua
 fi
 
+# ~/.config/starship.toml
+if [ -r ${THIS_DIR}/starship/starship.toml ]; then
+  ln -snf ${THIS_DIR}/starship/starship.toml ~/.config/starship.toml
+fi
+
 # macOS向けの処理
 if [ "$(uname)" == 'Darwin' ]; then
     # Homebrew

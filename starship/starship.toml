@@ -1,0 +1,17 @@
+# Inserts a blank line between shell prompts
+add_newline = true
+
+[character]
+error_symbol = "[❯](bold red)"
+success_symbol = "[❯](bold green)"
+
+[directory]
+truncation_length = 100
+truncate_to_repo = false
+truncation_symbol = "…/"
+
+[gcloud]
+disabled = true
+
+[swift]
+format = 'via [🏎  $version](red bold)'
