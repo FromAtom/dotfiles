@@ -14,4 +14,7 @@ truncation_symbol = "…/"
 disabled = true
 
 [swift]
-format = 'via [🏎  $version](red bold)'
+symbol = " "
+
+[ruby]
+symbol = " "
