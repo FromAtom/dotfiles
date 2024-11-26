@@ -199,7 +199,7 @@ case "${OSTYPE}" in
     alias ls="ls -G -w"
     ;;
     darwin*)
-    alias ls="eza"
+    alias ls="eza --icons"
     ;;
     linux*)
     alias ls="ls --color"
