@@ -242,3 +242,6 @@ fi
 
 ## starship
 eval "$(starship init zsh)"
+
+## OpenJDK
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
