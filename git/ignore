@@ -226,3 +226,5 @@ flycheck_*.el
 
 .emacs.d/el-get/
 .emacs.d/.framesize
+
+default.profraw
