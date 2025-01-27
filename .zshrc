@@ -245,3 +245,7 @@ eval "$(starship init zsh)"
 
 ## OpenJDK
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+## NumPy
+## https://cloud.google.com/iap/docs/using-tcp-forwarding?hl=ja#increasing_the_tcp_upload_bandwidth
+export CLOUDSDK_PYTHON_SITEPACKAGES=1
