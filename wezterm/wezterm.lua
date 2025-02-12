@@ -3,7 +3,8 @@ local config = wezterm.config_builder()
 
 config.initial_rows = 40
 config.initial_cols = 120
-config.color_scheme = "Solarized Dark - Patched"
+-- config.color_scheme = "Solarized Dark - Patched"
+config.color_scheme = "Dracula+"
 config.font_size = 18.0
 config.use_ime = true
 config.window_background_opacity = 0.9
