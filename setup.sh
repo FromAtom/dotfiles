@@ -37,6 +37,9 @@ fi
 
 # macOS向けの処理
 if [ "$(uname)" == 'Darwin' ]; then
+    # ref: https://fromatom.hatenablog.com/entry/2018/09/14/134142
+    defaults write -g ApplePressAndHoldEnabled -bool false
+
     # Homebrew
     if ! which brew > /dev/null; then
         /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
