@@ -7,6 +7,7 @@ config.initial_cols = 120
 config.color_scheme = "Dracula+"
 config.font_size = 18.0
 config.use_ime = true
+config.enable_scroll_bar = true
 config.window_background_opacity = 0.9
 config.macos_window_background_blur = 20
 config.window_decorations = "RESIZE"
