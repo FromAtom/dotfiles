@@ -13,3 +13,9 @@
 [submodule ".emacs.d/public_repos/rhtml"]
 	path = .emacs.d/public_repos/rhtml
 	url = git@github.com:eschulte/rhtml.git
+[submodule ".zsh/plugins/zsh-syntax-highlighting"]
+	path = .zsh/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule ".zsh/plugins/zsh-notify"]
+	path = .zsh/plugins/zsh-notify
+	url = https://github.com/marzocchi/zsh-notify.git

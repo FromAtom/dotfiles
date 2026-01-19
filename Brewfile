@@ -1,4 +1,3 @@
-brew 'zplug'
 brew 'peco'
 brew 'rbenv'
 brew 'ruby-build'
