@@ -249,3 +249,5 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 ## NumPy
 ## https://cloud.google.com/iap/docs/using-tcp-forwarding?hl=ja#increasing_the_tcp_upload_bandwidth
 export CLOUDSDK_PYTHON_SITEPACKAGES=1
+# Added by Antigravity
+export PATH="/Users/fromatom/.antigravity/antigravity/bin:$PATH"
