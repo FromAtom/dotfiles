@@ -226,11 +226,11 @@ alias xc='xed .'
 #
 [ -f ${HOME}/.zshrc.mine ] && source ${HOME}/.zshrc.mine
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/fromatom/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/fromatom/google-cloud-sdk/path.zsh.inc'; fi
+# Source [/opt/homebrew/share/google-cloud-sdk/path.zsh.inc] in your profile to add the Google Cloud SDK command line tools to your $PATH.
+if [ -f '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc'; fi
 
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/fromatom/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/fromatom/google-cloud-sdk/completion.zsh.inc'; fi
+# Source [/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc] in your profile to enable shell command completion for gcloud.
+if [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc'; fi
 
 # zsh-completion
 if type brew &>/dev/null; then

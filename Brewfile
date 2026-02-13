@@ -38,6 +38,9 @@ cask 'vivaldi'
 cask 'xcodes'
 cask 'wezterm'
 
+# Google Cloud CLI
+cask 'gcloud-cli'
+
 # Fonts
 cask 'font-hackgen'
 cask 'font-hackgen-nerd'
