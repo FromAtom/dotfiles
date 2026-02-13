@@ -5,6 +5,11 @@ set -u
 THIS_DIR=$(cd $(dirname $0); pwd)
 cd $THIS_DIR
 
+# git submodule の初期化と更新
+if [ -d .git ]; then
+    git submodule update --init --recursive
+fi
+
 # dotfilesのシンボリックリンク作成
 DOT_FILES=( .zsh .zshrc .emacs.d )
 for file in ${DOT_FILES[@]}

@@ -1,23 +1,13 @@
 ##-*- coding: utf-8-unix -*-
 #
 
-## zplug
-export ZPLUG_HOME=/opt/homebrew/opt/zplug
-source $ZPLUG_HOME/init.zsh
-
-zplug "zsh-users/zsh-syntax-highlighting", defer:2
-zplug "marzocchi/zsh-notify"
-zplug "zsh-users/zsh-completions"
-
-if ! zplug check --verbose; then
-    printf "Install? [y/N]: "
-    if read -q; then
-        echo; zplug install
-    fi
+## Plugins (git submodule)
+# zsh-syntax-highlighting (at the end for better performance)
+# zsh-notify
+if [ -f ~/.zsh/plugins/zsh-notify/notify.zsh ]; then
+  source ~/.zsh/plugins/zsh-notify/notify.zsh
 fi
-
-zplug load
-## zplug ^
+## Plugins ^
 
 ## import ENV
 if [ -f ~/.env.zsh ]; then
@@ -252,3 +242,8 @@ export CLOUDSDK_PYTHON_SITEPACKAGES=1
 
 # Added by Antigravity
 export PATH="/Users/fromatom/.antigravity/antigravity/bin:$PATH"
+
+# zsh-syntax-highlighting (should be at the very end)
+if [ -f ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
