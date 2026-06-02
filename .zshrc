@@ -246,3 +246,21 @@ export PATH="/Users/fromatom/.antigravity/antigravity/bin:$PATH"
 if [ -f ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
   source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
+source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script
+export PATH="$HOME/.local/bin:$PATH"
+eval "$(~/.local/bin/mise activate zsh)"
+
+# pnpm
+export PNPM_HOME="/Users/fromatom/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME/bin:"*) ;;
+  *) export PATH="$PNPM_HOME/bin:$PATH" ;;
+esac
+# pnpm end
+
+
+# Added by Antigravity CLI installer
+export PATH="/Users/fromatom/.local/bin:$PATH"
+
+# Added by Antigravity IDE
+export PATH="/Users/fromatom/.antigravity-ide/antigravity-ide/bin:$PATH"

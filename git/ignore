@@ -228,3 +228,8 @@ flycheck_*.el
 .emacs.d/.framesize
 
 default.profraw
+**/.claude/settings.local.json
+
+**/.claude/settings.local.json
+
+.antigravitycli/
