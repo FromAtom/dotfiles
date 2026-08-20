@@ -16,11 +16,7 @@ fi
 
 ##users generic .zshrc file for zsh(1)
 #
-export PATH=~/bin:/opt/local:$PATH
-
-##For Ghostscript
-#
-export PATH=/Applications/Ghostscript.app:/Applications/Ghostscript.app/bin:$PATH
+export PATH=~/bin:$PATH
 
 ##For homebrew PATH
 export PATH=/usr/local/bin:$PATH
@@ -40,14 +36,11 @@ eval "$(pyenv init -)"
 ##For gibo
 alias gignore='gibo -l | sed "/=/d" | tr "\t", "\n" | sed "/^$/d" | sort | peco | xargs gibo'
 
-##For npm
-export PATH=/usr/local/share/npm/bin:$PATH
-
 ##For adb
-export PATH=/Users/fromatom/Library/Android/sdk/platform-tools:$PATH
+export PATH=$HOME/Library/Android/sdk/platform-tools:$PATH
 
 ## for Go-lang
-if [ -x "`which go`" ]; then
+if (( $+commands[go] )); then
   export GOPATH=$HOME/.go
   export PATH=$PATH:$GOPATH/bin
 fi
@@ -169,19 +162,12 @@ setopt share_history        # share command history data
 #
 autoload zed
 
-## Prediction configuration
-#
-#autoload predict-on
-#predict-off
-
-
 ## Alias configuration
 #
 # expand aliases before completing
 #
 setopt complete_aliases     # aliased ls needs if file/dir completions work
 
-alias where="command -v"
 alias j="jobs -l"
 
 case "${OSTYPE}" in
@@ -223,12 +209,14 @@ if [ -f '/opt/homebrew/share/google-cloud-sdk/path.zsh.inc' ]; then . '/opt/home
 if [ -f '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc' ]; then . '/opt/homebrew/share/google-cloud-sdk/completion.zsh.inc'; fi
 
 # zsh-completion
-if type brew &>/dev/null; then
-    FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-    autoload -Uz compinit
-    compinit
+if [ -d /opt/homebrew/share/zsh-completions ]; then
+    FPATH=/opt/homebrew/share/zsh-completions:$FPATH
+elif [ -d /usr/local/share/zsh-completions ]; then
+    FPATH=/usr/local/share/zsh-completions:$FPATH
 fi
+
+autoload -Uz compinit
+compinit
 
 ## starship
 eval "$(starship init zsh)"
@@ -237,23 +225,21 @@ eval "$(starship init zsh)"
 ## https://cloud.google.com/iap/docs/using-tcp-forwarding?hl=ja#increasing_the_tcp_upload_bandwidth
 export CLOUDSDK_PYTHON_SITEPACKAGES=1
 
-# zsh-syntax-highlighting (should be at the very end)
-if [ -f ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
-  source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
 source ~/.safe-chain/scripts/init-posix.sh # Safe-chain Zsh initialization script
 export PATH="$HOME/.local/bin:$PATH"
-eval "$(~/.local/bin/mise activate zsh)"
 
 # pnpm
-export PNPM_HOME="/Users/fromatom/Library/pnpm"
+export PNPM_HOME="$HOME/Library/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME/bin:"*) ;;
   *) export PATH="$PNPM_HOME/bin:$PATH" ;;
 esac
 # pnpm end
 
-
 # Antigravity
-export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/.antigravity-ide/antigravity-ide/bin:$PATH"
+
+# zsh-syntax-highlighting (should be at the very end)
+if [ -f ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+  source ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
