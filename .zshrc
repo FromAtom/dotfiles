@@ -233,14 +233,9 @@ fi
 ## starship
 eval "$(starship init zsh)"
 
-## OpenJDK
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-
 ## NumPy
 ## https://cloud.google.com/iap/docs/using-tcp-forwarding?hl=ja#increasing_the_tcp_upload_bandwidth
 export CLOUDSDK_PYTHON_SITEPACKAGES=1
-# Added by Antigravity
-export PATH="/Users/fromatom/.antigravity/antigravity/bin:$PATH"
 
 # zsh-syntax-highlighting (should be at the very end)
 if [ -f ~/.zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
@@ -259,8 +254,6 @@ esac
 # pnpm end
 
 
-# Added by Antigravity CLI installer
-export PATH="/Users/fromatom/.local/bin:$PATH"
-
-# Added by Antigravity IDE
-export PATH="/Users/fromatom/.antigravity-ide/antigravity-ide/bin:$PATH"
+# Antigravity
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.antigravity-ide/antigravity-ide/bin:$PATH"

@@ -22,6 +22,8 @@ brew 'ghq'
 brew 'pyenv'
 brew 'eza'
 
+cask 'gcloud-cli'
+
 # GUI Apps
 cask 'MonitorControl'
 cask 'visual-studio-code'
